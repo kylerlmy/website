@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/CSS-declaration.png">
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/CSS-ruleset.png">
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/Pseudo-class-elements.PNG">
-<meta property="og:updated_time" content="2019-07-28T16:36:44.690Z">
+<meta property="og:updated_time" content="2019-07-29T04:37:05.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 基础">
 <meta name="twitter:description" content="[TOC] CSS 基础语法CSS 机制CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显">
@@ -161,7 +161,7 @@ font-family: cursive;
 padding: 5px;
 }</code></li>
 </ul>
-<h5 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h5><p>通过 属性 / 属性值 匹配一个或多个元素。属性选择器是一种特殊类型的选择器，它根据元素的 属性 和属性值来匹配元素。它们的通用语法由方括号 ([]) 组成，其中包含属性名称，后跟可选条件以匹配属性的值。 属性选择器可以根据其匹配属性值的方式分为两类。</p>
+<h5 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h5><p>通过 属性 / 属性值 匹配一个或多个元素。属性选择器是一种特殊类型的选择器，它根据元素的 属性 和属性值来匹配元素。它们的通用语法由方括号 ([ ]) 组成，其中包含属性名称，后跟可选条件以匹配属性的值。 属性选择器可以根据其匹配属性值的方式分为两类。</p>
 <ul>
 <li>存在和值属性选择器<ul>
 <li>[attr]：该选择器选择包含 attr 属性的所有元素，不论 attr 的值为何。</li>
@@ -241,7 +241,7 @@ padding: 5px;
 </ul>
 </li>
 </ul>
-<p>*注：px 作为相对单位，这里的相对是指相对不同设备而言的，因为不同设备分辨率不同，px转换为绝对单位的数值也就不同。如果是同一台设备，px 则为绝对单位。</p>
+<p><em>注：px 作为相对单位，这里的相对是指相对不同设备而言的，因为不同设备分辨率不同，px转换为绝对单位的数值也就不同。如果是同一台设备，px 则为绝对单位</em></p>
 <ul>
 <li>百分比<br>可以用于指定尺寸或长度,例如取决于父容器的长度或高度，或默认的字体大小。大部分使用特定数值指定的内容同样可以使用百分比来指定。有两种不同的框布局方式：<ul>
 <li>动态（流体）布局（跟随浏览.视口大小的变化），如 <code>%</code>。</li>
@@ -254,7 +254,7 @@ padding: 5px;
 <li><p>颜色<br>用于指定背景颜色，字体颜色等。设置颜色有以下几种方式。</p>
 <ol>
 <li>关键字：CSS中最简单、最古老的颜色类型就是颜色关键词。这些都是代表特定颜色值的特定字符串。</li>
-<li>十六进制数值：每个颜色包括一个哈希/磅符号（#）和其后面紧跟的六个十六进制数，其中每个十六进制数可以是0和F之间的一个值（一共16个），每对十六进制数代表一个通道（红色、绿色或者蓝色）</li>
+<li>十六进制数值：每个颜色包括一个哈希/磅符号（#）和其后面紧跟的六个十六进制数，每对十六进制数代表一个通道（红色、绿色或者蓝色）</li>
 <li>RGB：一个RGB值是由 rgb() 函数与其给定的三个参数构成。三个函数值分别表示红色，绿色和蓝色通道的颜色值，这与十六进制值的工作方式大致相同。区别在于，RGB中每个通道不是由两个十六进制数字表示的，而是由0到255之间的十进制数表示的。</li>
 <li>HSL：支持度比RGB稍微差一点的是HSL（旧版本的IE浏览器不支持），hsl() 函数接受三个表示色调、饱和度以及亮度的参数。色调：颜色的底色调。这个值在0到360之间，表示色轮的角度。饱和度：从0-100%的值，其中0是没有颜色（它将显示为灰色），100%是全彩色饱和度。亮度：从0-100%的值，其中0是无光（它会出现全黑的），100%是充满光的（它会出现全白）。</li>
 <li>RGBA 和 HSLA：RGB和HSL都有相应的模式——RGBA和HSLA——不仅允许您设置想要显示的颜色,还有此颜色的透明度（ transparency ）。由包含四个参数的 函数实现（例如：rgba(255,0,0,0.5)）。</li>
@@ -287,11 +287,14 @@ padding: 5px;
 <li><p>继承<br>应用于某个元素的一些属性值将由该元素的子元素继承，而有些则不会。</p>
 <ul>
 <li>可被继承<br>font-family、color （自然继承）  等</li>
-<li>不被继承<br>margin、padding、border、background-image 等</li>
+<li>不被继承<br>margin、padding、border、background-image 等<br>CSS为处理继承提供了四种特殊的通用属性值：</li>
+<li>inherit<br>该值将应用到选定元素的属性值设置为与其父元素一样。</li>
+<li>initial<br>该值将应用到选定元素的属性值设置为与浏览器默认样式表中该元素设置的值一样。如果浏览器默认样式表中没有设置值，并且该属性是自然继承的，那么该属性值就被设置为 inherit。</li>
+<li>unset<br>该值将属性重置为其自然值，即如果属性是自然继承的，那么它就表现得像 inherit，否则就是表现得像 initial。</li>
+<li>revert<br>如果当前的节点没有应用任何样式，则将该属性恢复到它所拥有的值。换句话说，属性值被设置成自定义样式所定义的属性（如果被设置）， 否则属性值被设置成用户代理的默认样式。</li>
 </ul>
 </li>
 </ul>
-<p>CSS为处理继承提供了四种特殊的通用属性值：<br>    - inherit<br>该值将应用到选定元素的属性值设置为与其父元素一样。<br>    - initial<br>该值将应用到选定元素的属性值设置为与浏览器默认样式表中该元素设置的值一样。如果浏览器默认样式表中没有设置值，并且该属性是自然继承的，那么该属性值就被设置为 inherit。<br>    - unset<br>该值将属性重置为其自然值，即如果属性是自然继承的，那么它就表现得像 inherit，否则就是表现得像 initial。<br>    - revert<br>如果当前的节点没有应用任何样式，则将该属性恢复到它所拥有的值。换句话说，属性值被设置成自定义样式所定义的属性（如果被设置）， 否则属性值被设置成用户代理的默认样式。</p>
 <h5 id="框模型"><a href="#框模型" class="headerlink" title="框模型"></a>框模型</h5><ul>
 <li><p>框属性<br>文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。框的内容、内边距、边界和外边距像洋葱的膜那样，一层包着一层构建起来。浏览器渲染网页布局时，它会算出每个框的内容要用什么样式，周围的洋葱层有多大，以及框相对于其它框放在哪里。默认情况下，content的width 被设置为可用空间的100%（在margin, border, padding占据了它们的空间后剩下的空间的宽度）。</p>
 <ul>
@@ -353,7 +356,10 @@ padding: 5px;
 <li>word-spacing：单词与单词之间的间距。</li>
 </ul>
 </li>
+<li><p>Font 简写<br>许多字体的属性也可以通过 font 的简写方式来设置 . 这些是按照以下顺序来写的：  font-style, font-variant, font-weight, font-stretch, font-size, line-height, and font-family。如果你想要使用 font 的简写形式，在所有这些属性中，只有 font-size 和 font-family 是一定要指定的。font-size 和 line-height 属性之间必须放一个正斜杠。</p>
+</li>
 </ul>
+<p><code>font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;</code></p>
 <h5 id="样式化其他元素"><a href="#样式化其他元素" class="headerlink" title="样式化其他元素"></a>样式化其他元素</h5><ul>
 <li><p>样式化列表</p>
 <ul>
@@ -481,7 +487,7 @@ padding: 5px;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kylerlmy.github.io/website/2019/07/28/2019-7-28-CSS-Basic/" data-id="cjyn6i91i000dyccdge964obs" class="article-share-link">Share</a>
+      <a data-url="https://kylerlmy.github.io/website/2019/07/28/2019-7-28-CSS-Basic/" data-id="cjynwz9g4000dvocd77cd1z3g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/website/tags/CSS/">CSS</a></li></ul>

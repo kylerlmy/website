@@ -16,7 +16,7 @@
 <meta property="og:description" content="[TOC] 标记文本块级元素与内联元素 块级元素页面中以块的形式展示。相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚、div 等等。  内联元素内联元素通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。内联元素不会导致文本换行：它通常出现在一堆文字之间。   注：空元素是没有内容">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kylerlmy.github.io/website/2019/07/27/2019-7-27-HTML-Base/conventional-html-layout.png">
-<meta property="og:updated_time" content="2019-07-28T10:21:24.939Z">
+<meta property="og:updated_time" content="2019-07-29T04:49:38.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML基础">
 <meta name="twitter:description" content="[TOC] 标记文本块级元素与内联元素 块级元素页面中以块的形式展示。相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚、div 等等。  内联元素内联元素通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。内联元素不会导致文本换行：它通常出现在一堆文字之间。   注：空元素是没有内容">
@@ -140,7 +140,7 @@
 <li>有序列表<br>有序的列表是根据项目的顺序列出来的。标记的结构和无序列表一样，除了你需要用 ol 元素将所有项目包裹。</li>
 </ul>
 <h5 id="描述列表"><a href="#描述列表" class="headerlink" title="描述列表"></a>描述列表</h5><p>描述列表的目的是标记一组项目及其相关描述。描述列表使用与其他列表类型不同的闭合标签— dl 元素; 此外，每一项都用 dt (description term) 元素闭合。每个描述都用 dd (description description) 元素闭合。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>内心独白<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>戏剧中，某个角色对自己的内心活动或感受进行念白表演<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>语言独白<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>戏剧中，某个角色把自己的想法直接进行念白表演。<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>旁白<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>戏剧中，为渲染幽默或戏剧性效果进行的场景之外的补充注释念白<span class="tag">&lt;/<span class="name">dd</span>&gt;</span><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>内心独白<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>戏剧中，某个角色对自己的内心活动或感受进行念白表演<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>语言独白<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>戏剧中，某个角色把自己的想法直接进行念白表演。<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>旁白<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>戏剧中，为渲染幽默或戏剧性效果进行的场景之外的补充注释念白<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h5><ul>
 <li>块引用<br>如果一个块级内容（一个段落、多个段落、一个列表等）从其他地方被引用，你应该把它用blockquote 元素包裹起来表示，并且在 cite 属性里用 URL 来指向引用的资源。</li>
@@ -248,7 +248,7 @@
 <h4 id="Iframe"><a href="#Iframe" class="headerlink" title="Iframe"></a>Iframe</h4><p>iframe 元素旨在允许您将其他 Web 文档嵌入到当前文档中。这很适合将第三方内容纳入您的网站</p>
 <h5 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h5><ul>
 <li>allowfullscreen 属性<br>如果可以设置，可以通过全屏 API 设置为全屏模式。</li>
-<li>frameborder 属性<br>如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。0删除边框。不推荐设置，可以通过在 CSS 中使用 border:none 来设置。</li>
+<li>frameborder 属性<br>如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。删除边框。不推荐设置，可以通过在 CSS 中使用 border:none 来设置。</li>
 <li>src 属性<br>包含指向要嵌入文档的 URL 路径</li>
 <li>width 和 height 元素<br>设置 iframe 的宽度和高度</li>
 <li>备选内容<br>与 video 元素等其他类似元素相同，您可以在 iframe 元素之间包含备选内容，如果浏览器不支持 iframe，将会显示备选内容。</li>
@@ -256,7 +256,8 @@
 </ul>
 <h5 id="安全隐患"><a href="#安全隐患" class="headerlink" title="安全隐患"></a>安全隐患</h5><ul>
 <li>只在必要时嵌入<br>只在完全需要时嵌入第三方内容，您可以省去很多麻烦。</li>
-<li>使用 HTTPS<br>绝对不能使用HTTP嵌入第三方内容<br>＋　始终使用　sandbox　属性<br>想尽可能减少攻击者在你的网站上做坏事的机会，那么你应该给嵌入的内容仅能完成自己工作的权限。</li>
+<li>使用 HTTPS<br>绝对不能使用HTTP嵌入第三方内容</li>
+<li>始终使用　sandbox　属性<br>想尽可能减少攻击者在你的网站上做坏事的机会，那么你应该给嵌入的内容仅能完成自己工作的权限。</li>
 <li>配置 CSP 指令<br>CSP 代表内容安全策略，它提供一组HTTP标头（由web服务器发送时与元数据一起发送的元数据），旨在提高HTML文档的安全性。在 iframe 安全性方面，您可以将服务器配置为发送适当的 <a href="https://blog.mozilla.org/security/2013/12/12/on-the-x-frame-options-security-header/" target="_blank" rel="noopener">X-Frame-Options</a>  标题。这样做可以防止其他网站在其网页中嵌入您的内容（这将导致点击和一系列其他攻击）</li>
 </ul>
 <p><em>沙盒一个允许包含在其里的代码以适当的方式执行或者用于测试，但不能对其他代码库（意外或恶意）造成任何损害的容器称为沙盒</em></p>
@@ -369,7 +370,6 @@
 <li><p>文本输入框</p>
 <ul>
 <li>单行文本框 <code>&lt;input type=&quot;text&quot; id=&quot;comment&quot; name=&quot;comment&quot; value=&quot;I&#39;m a text field&quot;&gt;</code></li>
-<li>单行文本框 `</li>
 <li>Email 地址框 <code>&lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; multiple&gt;</code></li>
 <li>密码框 <code>&lt;input type=&quot;password&quot; id=&quot;pwd&quot; name=&quot;pwd&quot;&gt;</code></li>
 <li>搜索框 <code>&lt;input type=&quot;search&quot; id=&quot;search&quot; name=&quot;search&quot;&gt;</code></li>
@@ -467,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kylerlmy.github.io/website/2019/07/27/2019-7-27-HTML-Base/" data-id="cjyn6i91d0008yccdpen6jryv" class="article-share-link">Share</a>
+      <a data-url="https://kylerlmy.github.io/website/2019/07/27/2019-7-27-HTML-Base/" data-id="cjynwz9g00008vocdtm6emrin" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/website/tags/HTML/">HTML</a></li></ul>
