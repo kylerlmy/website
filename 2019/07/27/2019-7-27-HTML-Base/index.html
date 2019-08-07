@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE HTML>
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   
+    <title>HTML基础 | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="[object Object]">
+    
 
-  
-  <title>HTML基础 | Kyle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC] 标记文本块级元素与内联元素 块级元素页面中以块的形式展示。相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚、div 等等。  内联元素内联元素通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。内联元素不会导致文本换行：它通常出现在一堆文字之间。   注：空元素是没有内容">
+    
+    <meta name="description" content="[TOC] 标记文本块级元素与内联元素 块级元素页面中以块的形式展示。相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚、div 等等。  内联元素内联元素通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。内联元素不会导致文本换行：它通常出现在一堆文字之间。   注：空元素是没有内容">
 <meta name="keywords" content="HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML基础">
@@ -21,83 +25,86 @@
 <meta name="twitter:title" content="HTML基础">
 <meta name="twitter:description" content="[TOC] 标记文本块级元素与内联元素 块级元素页面中以块的形式展示。相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚、div 等等。  内联元素内联元素通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。内联元素不会导致文本换行：它通常出现在一堆文字之间。   注：空元素是没有内容">
 <meta name="twitter:image" content="https://kylerlmy.github.io/website/2019/07/27/2019-7-27-HTML-Base/conventional-html-layout.png">
-  
-    <link rel="alternate" href="/website/atom.xml" title="Kyle" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/website/css/style.css">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/website/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/website/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/website/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/website/css/style.css">
 </head>
 </html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/website/" id="logo">Kyle</a>
-      </h1>
+  <body>
+    <header>
       
-        <h2 id="subtitle-wrap">
-          <a href="/website/" id="subtitle">LOVE CODE &amp; ENJOY LIFE</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/website/">Home</a>
-        
-          <a class="main-nav-link" href="/website/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/website/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kylerlmy.github.io/website"></form>
-      </div>
-    </div>
-  </div>
+<div>
+		
+			<div id="imglogo">
+				<a href="/website/"><img src="/website/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/website/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/website/">Home</a></li>
+					
+						<li><a href="/website/archives">Archives</a></li>
+					
+						<li><a href="/website/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:kylerlmy.github.io/website">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/website/2019/07/27/2019-7-27-HTML-Base/" title="HTML基础" itemprop="url">HTML基础</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/website/about" title="[object Object]" target="_blank" itemprop="author">[object Object]</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-27T15:15:25.000Z" itemprop="datePublished"> Published 2019-07-27</time>
+    
+  </p>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-2019-7-27-HTML-Base" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/website/2019/07/27/2019-7-27-HTML-Base/" class="article-date">
-  <time datetime="2019-07-27T15:15:25.000Z" itemprop="datePublished">2019-07-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/website/categories/Web/">Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      HTML基础
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#标记文本"><span class="toc-number">1.</span> <span class="toc-text">标记文本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#块级元素与内联元素"><span class="toc-number">1.1.</span> <span class="toc-text">块级元素与内联元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文档结构"><span class="toc-number">1.2.</span> <span class="toc-text">文档结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档的主要组成部分"><span class="toc-number">1.2.1.</span> <span class="toc-text">文档的主要组成部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#无语义元素"><span class="toc-number">1.2.2.</span> <span class="toc-text">无语义元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#换行与水平风格线"><span class="toc-number">1.2.3.</span> <span class="toc-text">换行与水平风格线</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文字排版"><span class="toc-number">1.3.</span> <span class="toc-text">文字排版</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#标题和段落"><span class="toc-number">1.3.1.</span> <span class="toc-text">标题和段落</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基本列表"><span class="toc-number">1.3.2.</span> <span class="toc-text">基本列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#描述列表"><span class="toc-number">1.3.3.</span> <span class="toc-text">描述列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用"><span class="toc-number">1.3.4.</span> <span class="toc-text">引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接"><span class="toc-number">2.</span> <span class="toc-text">链接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链接基本特性"><span class="toc-number">2.1.</span> <span class="toc-text">链接基本特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#链接的解析"><span class="toc-number">2.1.1.</span> <span class="toc-text">链接的解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文档片段"><span class="toc-number">2.1.2.</span> <span class="toc-text">文档片段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#绝对URL和相对URL"><span class="toc-number">2.1.3.</span> <span class="toc-text">绝对URL和相对URL</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接最佳实践"><span class="toc-number">2.2.</span> <span class="toc-text">链接最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子邮件链接"><span class="toc-number">2.3.</span> <span class="toc-text">电子邮件链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML-错误排查"><span class="toc-number">2.4.</span> <span class="toc-text">HTML 错误排查</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多媒体与嵌入"><span class="toc-number">3.</span> <span class="toc-text">多媒体与嵌入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML中的图片"><span class="toc-number">3.1.</span> <span class="toc-text">HTML中的图片</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#网页中的图片"><span class="toc-number">3.1.1.</span> <span class="toc-text">网页中的图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解说图片"><span class="toc-number">3.1.2.</span> <span class="toc-text">解说图片</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视频与音频"><span class="toc-number">3.2.</span> <span class="toc-text">视频与音频</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#video-标签"><span class="toc-number">3.2.1.</span> <span class="toc-text">video 标签</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多格式支持"><span class="toc-number">3.2.2.</span> <span class="toc-text">多格式支持</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#其他-video-属性"><span class="toc-number">3.2.3.</span> <span class="toc-text">其他 video 属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#audio-标签"><span class="toc-number">3.2.4.</span> <span class="toc-text">audio 标签</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iframe"><span class="toc-number">3.3.</span> <span class="toc-text">Iframe</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本属性"><span class="toc-number">3.3.1.</span> <span class="toc-text">基本属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安全隐患"><span class="toc-number">3.3.2.</span> <span class="toc-text">安全隐患</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#embed-和-object-元素"><span class="toc-number">3.4.</span> <span class="toc-text">embed 和 object 元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格"><span class="toc-number">4.</span> <span class="toc-text">表格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#表格基础"><span class="toc-number">4.1.</span> <span class="toc-text">表格基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#表格标题"><span class="toc-number">4.1.1.</span> <span class="toc-text">表格标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单元格跨越多行多列"><span class="toc-number">4.1.2.</span> <span class="toc-text">单元格跨越多行多列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#为表格中的列提供相同的样式"><span class="toc-number">4.1.3.</span> <span class="toc-text">为表格中的列提供相同的样式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表格高级特性"><span class="toc-number">4.2.</span> <span class="toc-text">表格高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#表格标题-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">表格标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表格结构"><span class="toc-number">4.2.2.</span> <span class="toc-text">表格结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#scope-属性"><span class="toc-number">4.2.3.</span> <span class="toc-text">scope 属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单"><span class="toc-number">5.</span> <span class="toc-text">表单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#表单基础"><span class="toc-number">5.1.</span> <span class="toc-text">表单基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#设计表单"><span class="toc-number">5.1.1.</span> <span class="toc-text">设计表单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#form-元素"><span class="toc-number">5.1.2.</span> <span class="toc-text">form 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lable-input-和-textarea-元素"><span class="toc-number">5.1.3.</span> <span class="toc-text">lable ,input 和 textarea 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#button-元素"><span class="toc-number">5.1.4.</span> <span class="toc-text">button 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fieldset-和-legend-元素"><span class="toc-number">5.1.5.</span> <span class="toc-text">fieldset 和 legend 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用于表单的通用HTML结构"><span class="toc-number">5.1.6.</span> <span class="toc-text">用于表单的通用HTML结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原生表单部件"><span class="toc-number">5.1.7.</span> <span class="toc-text">原生表单部件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表单提交"><span class="toc-number">5.1.8.</span> <span class="toc-text">表单提交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#action"><span class="toc-number">5.1.9.</span> <span class="toc-text">action</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表单发送文件"><span class="toc-number">5.1.10.</span> <span class="toc-text">表单发送文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见安全问题"><span class="toc-number">5.1.11.</span> <span class="toc-text">常见安全问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表单验证"><span class="toc-number">5.2.</span> <span class="toc-text">表单验证</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#不同类型的表单验证"><span class="toc-number">5.2.1.</span> <span class="toc-text">不同类型的表单验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#内置表单验证方式"><span class="toc-number">5.2.2.</span> <span class="toc-text">内置表单验证方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JavaScript-校验方式"><span class="toc-number">5.2.3.</span> <span class="toc-text">JavaScript 校验方式</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<p>[TOC]</p>
 <h3 id="标记文本"><a href="#标记文本" class="headerlink" title="标记文本"></a>标记文本</h3><h4 id="块级元素与内联元素"><a href="#块级元素与内联元素" class="headerlink" title="块级元素与内联元素"></a>块级元素与内联元素</h4><ul>
 <li><p>块级元素<br>页面中以块的形式展示。<br>相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚、<strong>div</strong> 等等。</p>
 </li>
@@ -463,144 +470,394 @@
 <li>约束校验的 API</li>
 <li>不使用内置 API 时的表单验证</li>
 </ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kylerlmy.github.io/website/2019/07/27/2019-7-27-HTML-Base/" data-id="cjynwz9g00008vocdtm6emrin" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/website/tags/HTML/">HTML</a></li></ul>
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/website/categories/Web/">Web</a>
+</div>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/website/2019/07/28/2019-7-28-CSS-Basic/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          CSS 基础
-        
-      </div>
-    </a>
-  
-  
-    <a href="/website/2019/07/25/2019-07-25-Hexo-setup-website/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hexo + GitHub 建站指北</div>
-    </a>
-  
-</nav>
 
+  <div class="article-tags">
   
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/website/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/website/categories/Web/">Web</a></li></ul>
-    </div>
+  <span></span> <a href="/website/tags/HTML/">HTML</a>
   </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/website/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/website/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/website/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/website/tags/Python-basic/">Python basic</a></li></ul>
-    </div>
-  </div>
+</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/website/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/website/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/website/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/website/tags/Python-basic/" style="font-size: 10px;">Python basic</a>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/website/archives/2019/07/">July 2019</a></li></ul>
-    </div>
-  </div>
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://kylerlmy.github.io/website/2019/07/27/2019-7-27-HTML-Base/" data-title="HTML基础 | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/website/2019/07/28/2019-7-28-CSS-Basic/">CSS 基础</a>
-          </li>
-        
-          <li>
-            <a href="/website/2019/07/27/2019-7-27-HTML-Base/">HTML基础</a>
-          </li>
-        
-          <li>
-            <a href="/website/2019/07/25/2019-07-25-Hexo-setup-website/">Hexo + GitHub 建站指北</a>
-          </li>
-        
-          <li>
-            <a href="/website/2019/07/25/2019-07-25-python-basic-one/">Python 基础入门（一）</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 Kyle Li<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/website/" class="mobile-nav-link">Home</a>
-  
-    <a href="/website/archives" class="mobile-nav-link">Archives</a>
-  
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/website/2019/07/28/2019-7-28-CSS-Basic/" title="CSS 基础">
+  <strong>上一篇：</strong><br/>
+  <span>
+  CSS 基础</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/website/2019/07/25/2019-07-25-Hexo-setup-website/"  title="Hexo + GitHub 建站指北">
+ <strong>下一篇：</strong><br/> 
+ <span>Hexo + GitHub 建站指北
+</span>
+</a>
+</div>
+
 </nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/website/fancybox/jquery.fancybox.css">
-  <script src="/website/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/website/js/script.js"></script>
+	
 
 
 
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#标记文本"><span class="toc-number">1.</span> <span class="toc-text">标记文本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#块级元素与内联元素"><span class="toc-number">1.1.</span> <span class="toc-text">块级元素与内联元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文档结构"><span class="toc-number">1.2.</span> <span class="toc-text">文档结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档的主要组成部分"><span class="toc-number">1.2.1.</span> <span class="toc-text">文档的主要组成部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#无语义元素"><span class="toc-number">1.2.2.</span> <span class="toc-text">无语义元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#换行与水平风格线"><span class="toc-number">1.2.3.</span> <span class="toc-text">换行与水平风格线</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文字排版"><span class="toc-number">1.3.</span> <span class="toc-text">文字排版</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#标题和段落"><span class="toc-number">1.3.1.</span> <span class="toc-text">标题和段落</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基本列表"><span class="toc-number">1.3.2.</span> <span class="toc-text">基本列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#描述列表"><span class="toc-number">1.3.3.</span> <span class="toc-text">描述列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用"><span class="toc-number">1.3.4.</span> <span class="toc-text">引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接"><span class="toc-number">2.</span> <span class="toc-text">链接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链接基本特性"><span class="toc-number">2.1.</span> <span class="toc-text">链接基本特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#链接的解析"><span class="toc-number">2.1.1.</span> <span class="toc-text">链接的解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文档片段"><span class="toc-number">2.1.2.</span> <span class="toc-text">文档片段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#绝对URL和相对URL"><span class="toc-number">2.1.3.</span> <span class="toc-text">绝对URL和相对URL</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接最佳实践"><span class="toc-number">2.2.</span> <span class="toc-text">链接最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#电子邮件链接"><span class="toc-number">2.3.</span> <span class="toc-text">电子邮件链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML-错误排查"><span class="toc-number">2.4.</span> <span class="toc-text">HTML 错误排查</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多媒体与嵌入"><span class="toc-number">3.</span> <span class="toc-text">多媒体与嵌入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML中的图片"><span class="toc-number">3.1.</span> <span class="toc-text">HTML中的图片</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#网页中的图片"><span class="toc-number">3.1.1.</span> <span class="toc-text">网页中的图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解说图片"><span class="toc-number">3.1.2.</span> <span class="toc-text">解说图片</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视频与音频"><span class="toc-number">3.2.</span> <span class="toc-text">视频与音频</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#video-标签"><span class="toc-number">3.2.1.</span> <span class="toc-text">video 标签</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多格式支持"><span class="toc-number">3.2.2.</span> <span class="toc-text">多格式支持</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#其他-video-属性"><span class="toc-number">3.2.3.</span> <span class="toc-text">其他 video 属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#audio-标签"><span class="toc-number">3.2.4.</span> <span class="toc-text">audio 标签</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iframe"><span class="toc-number">3.3.</span> <span class="toc-text">Iframe</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本属性"><span class="toc-number">3.3.1.</span> <span class="toc-text">基本属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安全隐患"><span class="toc-number">3.3.2.</span> <span class="toc-text">安全隐患</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#embed-和-object-元素"><span class="toc-number">3.4.</span> <span class="toc-text">embed 和 object 元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格"><span class="toc-number">4.</span> <span class="toc-text">表格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#表格基础"><span class="toc-number">4.1.</span> <span class="toc-text">表格基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#表格标题"><span class="toc-number">4.1.1.</span> <span class="toc-text">表格标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单元格跨越多行多列"><span class="toc-number">4.1.2.</span> <span class="toc-text">单元格跨越多行多列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#为表格中的列提供相同的样式"><span class="toc-number">4.1.3.</span> <span class="toc-text">为表格中的列提供相同的样式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表格高级特性"><span class="toc-number">4.2.</span> <span class="toc-text">表格高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#表格标题-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">表格标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表格结构"><span class="toc-number">4.2.2.</span> <span class="toc-text">表格结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#scope-属性"><span class="toc-number">4.2.3.</span> <span class="toc-text">scope 属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单"><span class="toc-number">5.</span> <span class="toc-text">表单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#表单基础"><span class="toc-number">5.1.</span> <span class="toc-text">表单基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#设计表单"><span class="toc-number">5.1.1.</span> <span class="toc-text">设计表单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#form-元素"><span class="toc-number">5.1.2.</span> <span class="toc-text">form 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lable-input-和-textarea-元素"><span class="toc-number">5.1.3.</span> <span class="toc-text">lable ,input 和 textarea 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#button-元素"><span class="toc-number">5.1.4.</span> <span class="toc-text">button 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fieldset-和-legend-元素"><span class="toc-number">5.1.5.</span> <span class="toc-text">fieldset 和 legend 元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用于表单的通用HTML结构"><span class="toc-number">5.1.6.</span> <span class="toc-text">用于表单的通用HTML结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原生表单部件"><span class="toc-number">5.1.7.</span> <span class="toc-text">原生表单部件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表单提交"><span class="toc-number">5.1.8.</span> <span class="toc-text">表单提交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#action"><span class="toc-number">5.1.9.</span> <span class="toc-text">action</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表单发送文件"><span class="toc-number">5.1.10.</span> <span class="toc-text">表单发送文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见安全问题"><span class="toc-number">5.1.11.</span> <span class="toc-text">常见安全问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表单验证"><span class="toc-number">5.2.</span> <span class="toc-text">表单验证</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#不同类型的表单验证"><span class="toc-number">5.2.1.</span> <span class="toc-text">不同类型的表单验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#内置表单验证方式"><span class="toc-number">5.2.2.</span> <span class="toc-text">内置表单验证方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JavaScript-校验方式"><span class="toc-number">5.2.3.</span> <span class="toc-text">JavaScript 校验方式</span></a></li></ol></li></ol></li></ol>
+ 
   </div>
-</body>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/website/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/website/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/website/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/website/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/website/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/website/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/website/about" target="_blank" title="[object Object]">[object Object]</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/website/js/jquery-2.0.3.min.js"></script>
+<script src="/website/js/jquery.imagesloaded.min.js"></script>
+<script src="/website/js/gallery.js"></script>
+<script src="/website/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/website/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/website/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/website/img/scrollup.png"/></a>
+	</div>
+	<script src="/website/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
 </html>
