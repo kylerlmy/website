@@ -1,9 +1,8 @@
 ---
 title: Hexo + GitHub 建站指北
-date: 2019-07-25 20:23:39
+date: 2017-07-25 20:23:39
 tags: Hexo
 ---
-
 ### Hexo 是什么？
 Hexo 是一个[开源](https://github.com/hexojs/hexo)、简单、轻量级，而且很强大的博客框架，主要使用 Nodejs 实现；非常适合喜欢使用 Markdown 文档来写博客的伙伴；它通过将 Markdown 文件转换为静态网页，来实现 Web 访问。它还支持很多可以定制功能，如:插件（Plugin）和主题（Themes），可以根据自己的喜好进行个性化设置。[这里是他的文档](https://hexo.io/zh-cn/docs/index.html)
 

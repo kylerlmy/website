@@ -3,11 +3,9 @@ title: HTML基础
 tags: HTML
 comments: true
 categories: Web
-date: 2019-07-27 23:15:25
+date: 2017-07-27 23:15:25
 ---
 
-
-[TOC]
 ### 标记文本
 #### 块级元素与内联元素
 + 块级元素
@@ -140,7 +138,8 @@ i 元素, b 元素 和 u 元素出现于要在文本中使用斜体、粗体、
   <dt>语言独白</dt>
     <dd>戏剧中，某个角色把自己的想法直接进行念白表演。</dd>
   <dt>旁白</dt>
-    <dd>戏剧中，为渲染幽默或戏剧性效果进行的场景之外的补充注释念白</dd></dl>
+    <dd>戏剧中，为渲染幽默或戏剧性效果进行的场景之外的补充注释念白</dd>
+</dl>
 ```
 
 ##### 引用
@@ -374,7 +373,7 @@ iframe 元素旨在允许您将其他 Web 文档嵌入到当前文档中。这�
 + allowfullscreen 属性
 如果可以设置，可以通过全屏 API 设置为全屏模式。
 + frameborder 属性
-如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。0删除边框。不推荐设置，可以通过在 CSS 中使用 border:none 来设置。
+如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。删除边框。不推荐设置，可以通过在 CSS 中使用 border:none 来设置。
 + src 属性
 包含指向要嵌入文档的 URL 路径
 + width 和 height 元素
@@ -390,7 +389,7 @@ iframe 元素旨在允许您将其他 Web 文档嵌入到当前文档中。这�
 只在完全需要时嵌入第三方内容，您可以省去很多麻烦。
 + 使用 HTTPS
 绝对不能使用HTTP嵌入第三方内容
-＋　始终使用　sandbox　属性
++ 始终使用　sandbox　属性
 想尽可能减少攻击者在你的网站上做坏事的机会，那么你应该给嵌入的内容仅能完成自己工作的权限。
 + 配置 CSP 指令
 CSP 代表内容安全策略，它提供一组HTTP标头（由web服务器发送时与元数据一起发送的元数据），旨在提高HTML文档的安全性。在 iframe 安全性方面，您可以将服务器配置为发送适当的 [X-Frame-Options](https://blog.mozilla.org/security/2013/12/12/on-the-x-frame-options-security-header/)  标题。这样做可以防止其他网站在其网页中嵌入您的内容（这将导致点击和一系列其他攻击）
@@ -609,7 +608,6 @@ fieldset 元素是一种方便的用于创建具有相同目的的小部件组�
 + 文本输入框
 
 	- 单行文本框 `<input type="text" id="comment" name="comment" value="I'm a text field">`
-	- 单行文本框 `
 	- Email 地址框 `<input type="email" id="email" name="email" multiple>`
 	- 密码框 `<input type="password" id="pwd" name="pwd">`
 	- 搜索框 `<input type="search" id="search" name="search">`

@@ -3,10 +3,9 @@ title: Python 基础入门（一）
 tags: Python basic
 comments: true
 categories: Python
-date: 2019-07-25 12:02:28
+date: 2018-07-25 12:02:28
 ---
 
-[TOC]
 ### 数据类型
 
 #### 字面常量
