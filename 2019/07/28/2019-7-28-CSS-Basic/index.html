@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="CSS 机制CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。 如何将">
+    <meta name="description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。 如">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 基础">
 <meta property="og:url" content="https://kylerlmy.github.io/website/2019/07/28/2019-7-28-CSS-Basic/index.html">
 <meta property="og:site_name" content="Kyle">
-<meta property="og:description" content="CSS 机制CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。 如何将">
+<meta property="og:description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。 如">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/CSS-work-principle.png">
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/CSS-declaration.png">
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/CSS-ruleset.png">
 <meta property="og:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/Pseudo-class-elements.PNG">
-<meta property="og:updated_time" content="2019-08-07T06:07:12.414Z">
+<meta property="og:updated_time" content="2019-08-07T06:25:21.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 基础">
-<meta name="twitter:description" content="CSS 机制CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。 如何将">
+<meta name="twitter:description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。CSS 如何工作      浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。 如">
 <meta name="twitter:image" content="https://kylerlmy.github.io/2019-7-28-CSS-Basic/CSS-work-principle.png">
 
     
@@ -103,14 +103,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-机制"><span class="toc-number">1.</span> <span class="toc-text">CSS 机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-如何影响-HTML"><span class="toc-number">1.1.</span> <span class="toc-text">CSS 如何影响 HTML</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-如何工作"><span class="toc-number">1.2.</span> <span class="toc-text">CSS 如何工作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何将CSS-应用到-HTML"><span class="toc-number">1.3.</span> <span class="toc-text">如何将CSS 应用到 HTML</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-语法"><span class="toc-number">2.</span> <span class="toc-text">CSS 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS声明"><span class="toc-number">2.1.</span> <span class="toc-text">CSS声明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-选择器和规则"><span class="toc-number">2.2.</span> <span class="toc-text">CSS 选择器和规则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-语句"><span class="toc-number">2.3.</span> <span class="toc-text">CSS 语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-简写"><span class="toc-number">2.4.</span> <span class="toc-text">CSS 简写</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择器"><span class="toc-number">3.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#简单选择器"><span class="toc-number">3.1.</span> <span class="toc-text">简单选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#属性选择器"><span class="toc-number">3.2.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪类选择器"><span class="toc-number">3.3.</span> <span class="toc-text">伪类选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪元素选择器"><span class="toc-number">3.4.</span> <span class="toc-text">伪元素选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#组合器"><span class="toc-number">3.5.</span> <span class="toc-text">组合器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多重选择器"><span class="toc-number">3.6.</span> <span class="toc-text">多重选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-数值和单位"><span class="toc-number">3.7.</span> <span class="toc-text">CSS　数值和单位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#层叠和继承"><span class="toc-number">3.8.</span> <span class="toc-text">层叠和继承</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#框模型"><span class="toc-number">3.9.</span> <span class="toc-text">框模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文本样式属性"><span class="toc-number">3.10.</span> <span class="toc-text">文本样式属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#样式化其他元素"><span class="toc-number">3.11.</span> <span class="toc-text">样式化其他元素</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#盒子的属性"><span class="toc-number">4.</span> <span class="toc-text">盒子的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#盒子的类型"><span class="toc-number">5.</span> <span class="toc-text">盒子的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#背景"><span class="toc-number">6.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#边界"><span class="toc-number">7.</span> <span class="toc-text">边界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化表格"><span class="toc-number">8.</span> <span class="toc-text">格式化表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#高级区块效果"><span class="toc-number">9.</span> <span class="toc-text">高级区块效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-排版"><span class="toc-number">10.</span> <span class="toc-text">CSS 排版</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-基础语法"><span class="toc-number">1.</span> <span class="toc-text">CSS 基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-如何影响-HTML"><span class="toc-number">1.1.</span> <span class="toc-text">CSS 如何影响 HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-如何工作"><span class="toc-number">1.2.</span> <span class="toc-text">CSS 如何工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何将CSS-应用到-HTML"><span class="toc-number">1.3.</span> <span class="toc-text">如何将CSS 应用到 HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS声明"><span class="toc-number">1.4.</span> <span class="toc-text">CSS声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-选择器和规则"><span class="toc-number">1.5.</span> <span class="toc-text">CSS 选择器和规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-语句"><span class="toc-number">1.6.</span> <span class="toc-text">CSS 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-简写"><span class="toc-number">1.7.</span> <span class="toc-text">CSS 简写</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择器"><span class="toc-number">2.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单选择器"><span class="toc-number">2.1.</span> <span class="toc-text">简单选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性选择器"><span class="toc-number">2.2.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#伪类选择器"><span class="toc-number">2.3.</span> <span class="toc-text">伪类选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#伪元素选择器"><span class="toc-number">2.4.</span> <span class="toc-text">伪元素选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合器"><span class="toc-number">2.5.</span> <span class="toc-text">组合器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多重选择器"><span class="toc-number">2.6.</span> <span class="toc-text">多重选择器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-数值和单位"><span class="toc-number">3.</span> <span class="toc-text">CSS　数值和单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层叠和继承"><span class="toc-number">4.</span> <span class="toc-text">层叠和继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#框模型"><span class="toc-number">5.</span> <span class="toc-text">框模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式化文字"><span class="toc-number">6.</span> <span class="toc-text">样式化文字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文本样式属性"><span class="toc-number">6.1.</span> <span class="toc-text">文本样式属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样式化其他元素"><span class="toc-number">6.2.</span> <span class="toc-text">样式化其他元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式化区块"><span class="toc-number">7.</span> <span class="toc-text">样式化区块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#盒子的属性"><span class="toc-number">7.1.</span> <span class="toc-text">盒子的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#盒子的类型"><span class="toc-number">7.2.</span> <span class="toc-text">盒子的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#背景"><span class="toc-number">7.3.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#边界"><span class="toc-number">7.4.</span> <span class="toc-text">边界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化表格"><span class="toc-number">7.5.</span> <span class="toc-text">格式化表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#高级区块效果"><span class="toc-number">7.6.</span> <span class="toc-text">高级区块效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-排版"><span class="toc-number">8.</span> <span class="toc-text">CSS 排版</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="CSS-机制"><a href="#CSS-机制" class="headerlink" title="CSS 机制"></a>CSS 机制</h4><h5 id="CSS-如何影响-HTML"><a href="#CSS-如何影响-HTML" class="headerlink" title="CSS 如何影响 HTML"></a>CSS 如何影响 HTML</h5><p>一个CSS规则由以下组成</p>
+		<h3 id="CSS-基础语法"><a href="#CSS-基础语法" class="headerlink" title="CSS 基础语法"></a>CSS 基础语法</h3><h4 id="CSS-如何影响-HTML"><a href="#CSS-如何影响-HTML" class="headerlink" title="CSS 如何影响 HTML"></a>CSS 如何影响 HTML</h4><p>一个CSS规则由以下组成</p>
 <ul>
 <li>一组 属性 ，属性的值更新了 HTML 的内容的显示方式。</li>
-<li>一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。<h5 id="CSS-如何工作"><a href="#CSS-如何工作" class="headerlink" title="CSS 如何工作"></a>CSS 如何工作</h5>
+<li>一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。<h4 id="CSS-如何工作"><a href="#CSS-如何工作" class="headerlink" title="CSS 如何工作"></a>CSS 如何工作</h4>
 
 </li>
 </ul>
@@ -119,20 +119,20 @@
 <li><p>浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。</p>
 </li>
 <li><p>浏览器显示 DOM 的内容。</p>
-<h5 id="如何将CSS-应用到-HTML"><a href="#如何将CSS-应用到-HTML" class="headerlink" title="如何将CSS 应用到 HTML"></a>如何将CSS 应用到 HTML</h5></li>
+<h4 id="如何将CSS-应用到-HTML"><a href="#如何将CSS-应用到-HTML" class="headerlink" title="如何将CSS 应用到 HTML"></a>如何将CSS 应用到 HTML</h4></li>
 </ol>
 <ul>
 <li>外部样式表 <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></li>
 <li>内部样式表 <code>&lt;style&gt; p { color: red;} &lt;/style&gt;</code></li>
 <li>内嵌样式 <code>&lt;p style=&quot;color:red;&quot;&gt;This is my first CSS example&lt;/p&gt;</code></li>
 </ul>
-<h4 id="CSS-语法"><a href="#CSS-语法" class="headerlink" title="CSS 语法"></a>CSS 语法</h4><h5 id="CSS声明"><a href="#CSS声明" class="headerlink" title="CSS声明"></a>CSS声明</h5>
+<h4 id="CSS声明"><a href="#CSS声明" class="headerlink" title="CSS声明"></a>CSS声明</h4>
 <p><img src="/2019-7-28-CSS-Basic/CSS-declaration.png" alt="CSS 声明"></p>
-<h5 id="CSS-选择器和规则"><a href="#CSS-选择器和规则" class="headerlink" title="CSS 选择器和规则"></a>CSS 选择器和规则</h5><p>哪些元素是它们需要应用的。通过在每个声明块前加上选择器（selector）来完成这一动作，选择器是一种模式，它能在页面上匹配一些元素。这将使相关的声明仅被应用到被选择的元素上。选择器加上声明块被称为规则集（ruleset），通常简称规则（rule）</p>
+<h4 id="CSS-选择器和规则"><a href="#CSS-选择器和规则" class="headerlink" title="CSS 选择器和规则"></a>CSS 选择器和规则</h4><p>哪些元素是它们需要应用的。通过在每个声明块前加上选择器（selector）来完成这一动作，选择器是一种模式，它能在页面上匹配一些元素。这将使相关的声明仅被应用到被选择的元素上。选择器加上声明块被称为规则集（ruleset），通常简称规则（rule）</p>
 
 <p><img src="/2019-7-28-CSS-Basic/CSS-ruleset.png" alt="CSS 规则集"></p>
 <p>一个元素可以被多个选择器所匹配，因此，一个给定的属性可能被多个规则设置多次。 CSS 定义了哪个规则比其它规则更具优先级，则更具优先级的规则必定被应用：这被称为层叠算法（cascade algorithm）</p>
-<h5 id="CSS-语句"><a href="#CSS-语句" class="headerlink" title="CSS 语句"></a>CSS 语句</h5><p>CSS 规则是样式表的主要组成块 ，这是在 CSS 中最常见的块。但这有一些其它类型的块</p>
+<h4 id="CSS-语句"><a href="#CSS-语句" class="headerlink" title="CSS 语句"></a>CSS 语句</h4><p>CSS 规则是样式表的主要组成块 ，这是在 CSS 中最常见的块。但这有一些其它类型的块</p>
 <ul>
 <li><p>@-规则(At-rules)：在CSS中被用来传递元数据、条件信息或其它描述性信息。它由（@）符号开始，紧跟着一个表明它是哪种规则的描述符，之后是这种规则的语法块，并最终由一个半角分号（;）结束。每种由描述符定义的@-规则，都有其特有的内部语法和语义。</p>
 <ul>
@@ -151,8 +151,8 @@
 </ul>
 </li>
 </ul>
-<h5 id="CSS-简写"><a href="#CSS-简写" class="headerlink" title="CSS 简写"></a>CSS 简写</h5><p>些属性比如 font，background，padding，border，和 margin 被称为简写属性，这是由于它们允许你在一行设置多个属性，从而节省时间并使代码更整洁。</p>
-<h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><h5 id="简单选择器"><a href="#简单选择器" class="headerlink" title="简单选择器"></a>简单选择器</h5><p>通过元素类型、class 或 id 匹配一个或多个元素。</p>
+<h4 id="CSS-简写"><a href="#CSS-简写" class="headerlink" title="CSS 简写"></a>CSS 简写</h4><p>些属性比如 font，background，padding，border，和 margin 被称为简写属性，这是由于它们允许你在一行设置多个属性，从而节省时间并使代码更整洁。</p>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="简单选择器"><a href="#简单选择器" class="headerlink" title="简单选择器"></a>简单选择器</h4><p>通过元素类型、class 或 id 匹配一个或多个元素。</p>
 <ul>
 <li>类型选择器<br>一个选择器名和指定的HTML元素名的不区分大小写的匹配。这是选择所有指定类型的最简单方式。<br><code>p {
 color: red;
@@ -167,7 +167,7 @@ font-family: cursive;
 padding: 5px;
 }</code></li>
 </ul>
-<h5 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h5><p>通过 属性 / 属性值 匹配一个或多个元素。属性选择器是一种特殊类型的选择器，它根据元素的 属性 和属性值来匹配元素。它们的通用语法由方括号 ([ ]) 组成，其中包含属性名称，后跟可选条件以匹配属性的值。 属性选择器可以根据其匹配属性值的方式分为两类。</p>
+<h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><p>通过 属性 / 属性值 匹配一个或多个元素。属性选择器是一种特殊类型的选择器，它根据元素的 属性 和属性值来匹配元素。它们的通用语法由方括号 ([ ]) 组成，其中包含属性名称，后跟可选条件以匹配属性的值。 属性选择器可以根据其匹配属性值的方式分为两类。</p>
 <ul>
 <li>存在和值属性选择器<ul>
 <li>[attr]：该选择器选择包含 attr 属性的所有元素，不论 attr 的值为何。</li>
@@ -183,13 +183,13 @@ padding: 5px;
 </ul>
 </li>
 </ul>
-<h5 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h5><p>匹配处于确定状态的一个或多个元素，比如被鼠标指针悬停的元素。一个 CSS  伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类（pseudo-class）。</p>
+<h4 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h4><p>匹配处于确定状态的一个或多个元素，比如被鼠标指针悬停的元素。一个 CSS  伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类（pseudo-class）。</p>
 
 <p><img src="/2019-7-28-CSS-Basic/Pseudo-class-elements.PNG" alt="伪类元素"></p>
 <p><code>a:visited {
   color: blue;
 }</code></p>
-<h5 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h5><p>匹配处于相关的确定位置的一个或多个元素，例如每个段落的第一个字，或者某个元素之前生成的内容。 伪元素（Pseudo-element）跟伪类很像，但它们又有不同的地方。它们都是关键字，伪元素前缀是两个冒号 (::) ， 同样是添加到选择器后面去选择某个元素的某个部分。</p>
+<h4 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h4><p>匹配处于相关的确定位置的一个或多个元素，例如每个段落的第一个字，或者某个元素之前生成的内容。 伪元素（Pseudo-element）跟伪类很像，但它们又有不同的地方。它们都是关键字，伪元素前缀是两个冒号 (::) ， 同样是添加到选择器后面去选择某个元素的某个部分。</p>
 <ul>
 <li>::after</li>
 <li>::before</li>
@@ -201,8 +201,8 @@ padding: 5px;
 <p><code>[href^=http]::after {
   content: &#39;⤴&#39;;
 }</code></p>
-<h5 id="组合器"><a href="#组合器" class="headerlink" title="组合器"></a>组合器</h5><p>匹配处于相关的确定位置的一个或多个元素，例如每个段落的第一个字，或者某个元素之前生成的内容。 </p>
-<h5 id="多重选择器"><a href="#多重选择器" class="headerlink" title="多重选择器"></a>多重选择器</h5><p>不是单独的选择器；这个思路是将以逗号分隔开的多个选择器放在一个CSS规则下面， 以将一组声明应用于由这些选择器选择的所有元素。</p>
+<h4 id="组合器"><a href="#组合器" class="headerlink" title="组合器"></a>组合器</h4><p>匹配处于相关的确定位置的一个或多个元素，例如每个段落的第一个字，或者某个元素之前生成的内容。 </p>
+<h4 id="多重选择器"><a href="#多重选择器" class="headerlink" title="多重选择器"></a>多重选择器</h4><p>不是单独的选择器；这个思路是将以逗号分隔开的多个选择器放在一个CSS规则下面， 以将一组声明应用于由这些选择器选择的所有元素。</p>
 <p>虽然一次使用一个选择器就很有用，但在某些情形中却可能导致效率低下。 CSS选择器在你开始组合他们时就进行细粒度选择的会更加有效。基于元素之间的相互关联关系，CSS提供了几种方法来对元素进行选择。</p>
 <table>
 <thead>
@@ -238,7 +238,7 @@ padding: 5px;
 <td>匹配B元素，满足条件：B是A之后的任意一个兄弟节点（AB有相同的父节点，B在A之后，但不一定是紧挨着A）</td>
 </tr>
 </tbody></table>
-<h5 id="CSS-数值和单位"><a href="#CSS-数值和单位" class="headerlink" title="CSS　数值和单位"></a>CSS　数值和单位</h5><ul>
+<h3 id="CSS-数值和单位"><a href="#CSS-数值和单位" class="headerlink" title="CSS　数值和单位"></a>CSS　数值和单位</h3><ul>
 <li><p>数值<br>长度值，用于指定例如元素宽度、边框（border）宽度或字体大小；以及无单位整数。用于指定例如相对线宽或运行动画的次数。<br>在屏幕上推荐使用相对单位（针对不同设备的不同分辨率。em,rem,px），而非绝对单位（cm, mm, in, pt and pc）。在设置字体时，推荐使用 em。使用相对单位是非常有用的-你可以相对于你的字体或视口大小来调整HTML元素的大小。</p>
 <ul>
 <li>px：在同一台设备上，是绝对单位（不同设备，分辨率不同，px表示大小也就不同）。</li>
@@ -272,7 +272,7 @@ padding: 5px;
 <li><p>函数<br>例如，用于指定背景图片或背景图片渐变。functions是代码中的可重复使用的部分，它可以多次运行，以便使开发人员和计算机以最小的代价完成重复的任务。（例如：例如 rgb()， hsl()）格式：名字后跟着括号,括号里包含用逗号分隔的一个或多个值。</p>
 </li>
 </ul>
-<h5 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h5><p>CSS 是 Cascading Style Sheets 的缩写，这暗示层叠（cascade）的概念是很重要的。在最基本的层面上，它表明CSS规则的顺序很重要。</p>
+<h3 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h3><p>CSS 是 Cascading Style Sheets 的缩写，这暗示层叠（cascade）的概念是很重要的。在最基本的层面上，它表明CSS规则的顺序很重要。</p>
 <ul>
 <li><p>层叠<br>  什么选择器在层叠中胜出取决于三个因素（优先级）：    </p>
 <ul>
@@ -301,7 +301,7 @@ padding: 5px;
 </ul>
 </li>
 </ul>
-<h5 id="框模型"><a href="#框模型" class="headerlink" title="框模型"></a>框模型</h5><ul>
+<h3 id="框模型"><a href="#框模型" class="headerlink" title="框模型"></a>框模型</h3><ul>
 <li><p>框属性<br>文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。框的内容、内边距、边界和外边距像洋葱的膜那样，一层包着一层构建起来。浏览器渲染网页布局时，它会算出每个框的内容要用什么样式，周围的洋葱层有多大，以及框相对于其它框放在哪里。默认情况下，content的width 被设置为可用空间的100%（在margin, border, padding占据了它们的空间后剩下的空间的宽度）。</p>
 <ul>
 <li>高度<br>padding+ border + height = 盒子的高度。<strong>框的高度不遵守百分比的长度；框的高度总是采用框内容的高度</strong>，除非指定一个绝对的高度（如：px 或者em），它会比在页面上默认是100%高度更实用。border也忽略百分比宽度设置。框的总宽度是width, padding-right, padding-left, border-right, 以及 border-left 属性之和。</li>
@@ -332,7 +332,7 @@ padding: 5px;
 </ul>
 </li>
 </ul>
-<h5 id="文本样式属性"><a href="#文本样式属性" class="headerlink" title="文本样式属性"></a>文本样式属性</h5><p>用于样式文本的 CSS 属性通常可以分为两类；</p>
+<h3 id="样式化文字"><a href="#样式化文字" class="headerlink" title="样式化文字"></a>样式化文字</h3><h4 id="文本样式属性"><a href="#文本样式属性" class="headerlink" title="文本样式属性"></a>文本样式属性</h4><p>用于样式文本的 CSS 属性通常可以分为两类；</p>
 <ul>
 <li><p>字体样式<br>用于字体的属性，会直接应用到文本中。字体类型，字体大小，粗体/斜体。包含在元素中的文本是作为一个单一的实体。你不能将文字其中一部分选中或添加样式，如果你要这么做，那么你必须要用适合的元素来包装它们，比如 ( span 元素或者 strong 元素), 或者使用伪元素，像::first-letter (选中元素文本的第一个字母), ::first-line(选中元素文本的第一行), 或者 ::selection (当前光标双击选中的文本) </p>
 <ul>
@@ -366,7 +366,7 @@ padding: 5px;
 </li>
 </ul>
 <p><code>font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;</code></p>
-<h5 id="样式化其他元素"><a href="#样式化其他元素" class="headerlink" title="样式化其他元素"></a>样式化其他元素</h5><ul>
+<h4 id="样式化其他元素"><a href="#样式化其他元素" class="headerlink" title="样式化其他元素"></a>样式化其他元素</h4><ul>
 <li><p>样式化列表</p>
 <ul>
 <li>list-style-type<br>设置用于列表的项目符号的类型，例如无序列表的方形或圆形项目符号，或有序列表的数字，字母或罗马数字。</li>
@@ -396,7 +396,7 @@ padding: 5px;
 
 </li>
 </ul>
-<h4 id="盒子的属性"><a href="#盒子的属性" class="headerlink" title="盒子的属性"></a>盒子的属性</h4><p>盒子的属性：width、height、padding、border、margin。</p>
+<h3 id="样式化区块"><a href="#样式化区块" class="headerlink" title="样式化区块"></a>样式化区块</h3><h4 id="盒子的属性"><a href="#盒子的属性" class="headerlink" title="盒子的属性"></a>盒子的属性</h4><p>盒子的属性：width、height、padding、border、margin。</p>
 <ul>
 <li><p>overflow<br>溢出，当用绝对的值设置盒子的大小时（比如，固定像素的 width 和 height），内容可能会超出设置的大小，此时内容就会溢出盒子。值：auto（超出盒子大小的内容会被隐藏，通过滚动条显示内容。）、hidden（超出盒子部分被隐藏）、visible（超出盒子部分隐藏在盒子之外）</p>
 </li>
@@ -470,7 +470,7 @@ padding: 5px;
 <li><p>drop-shadow()<br>滤镜：滤镜可以应用在任何元素上，块元素（block）或者行内元素（inline）——你只需要使用filter属性。drop-shadow()的工作方式以及产生的效果和 box-shadow() 十分相似。</p>
 </li>
 </ul>
-<h4 id="CSS-排版"><a href="#CSS-排版" class="headerlink" title="CSS 排版"></a>CSS 排版</h4><ul>
+<h3 id="CSS-排版"><a href="#CSS-排版" class="headerlink" title="CSS 排版"></a>CSS 排版</h3><ul>
 <li>float<br>浮动，当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。由于float意味着使用块布局，它在某些情况下修改display 值的计算值。值：<ul>
 <li>left<br>表明元素必须浮动在其所在的块容器左侧的关键字</li>
 <li>right<br>表明元素必须浮动在其所在的块容器右侧的关键字</li>
