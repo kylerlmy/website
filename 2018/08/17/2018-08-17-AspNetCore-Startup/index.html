@@ -1,0 +1,586 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Asp.Net Core 之 Startup | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Kyle Li">
+    
+
+    
+    <meta name="description" content="Startup 概述Startup 类配置服务和应用的请求管道。ASP.NET Core 应用使用 Startup 类，按照约定命名为 Startup。Startup类包含：  ConfigureServices  方法，用于配置应用的服务，每个服务是提供了该应用所需功能的可重用组件，通过在 ConfigureServices 中配置服务（也称为服务被注册到 ConfigureServices 中">
+<meta name="keywords" content="Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asp.Net Core 之 Startup">
+<meta property="og:url" content="http://blogs.netkyle.com/2018/08/17/2018-08-17-AspNetCore-Startup/index.html">
+<meta property="og:site_name" content="Kyle">
+<meta property="og:description" content="Startup 概述Startup 类配置服务和应用的请求管道。ASP.NET Core 应用使用 Startup 类，按照约定命名为 Startup。Startup类包含：  ConfigureServices  方法，用于配置应用的服务，每个服务是提供了该应用所需功能的可重用组件，通过在 ConfigureServices 中配置服务（也称为服务被注册到 ConfigureServices 中">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T09:47:09.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Asp.Net Core 之 Startup">
+<meta name="twitter:description" content="Startup 概述Startup 类配置服务和应用的请求管道。ASP.NET Core 应用使用 Startup 类，按照约定命名为 Startup。Startup类包含：  ConfigureServices  方法，用于配置应用的服务，每个服务是提供了该应用所需功能的可重用组件，通过在 ConfigureServices 中配置服务（也称为服务被注册到 ConfigureServices 中">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:blogs.netkyle.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/17/2018-08-17-AspNetCore-Startup/" title="Asp.Net Core 之 Startup" itemprop="url">Asp.Net Core 之 Startup</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-16T16:00:00.000Z" itemprop="datePublished"> Published 2018-08-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Startup-概述"><span class="toc-number">1.</span> <span class="toc-text">Startup 概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ConfigureServices-方法"><span class="toc-number">2.</span> <span class="toc-text">ConfigureServices 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Configure-方法"><span class="toc-number">3.</span> <span class="toc-text">Configure 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简便方式"><span class="toc-number">4.</span> <span class="toc-text">简便方式</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="Startup-概述"><a href="#Startup-概述" class="headerlink" title="Startup 概述"></a>Startup 概述</h4><p>Startup 类配置服务和应用的请求管道。<br>ASP.NET Core 应用使用 Startup 类，按照约定命名为 Startup。<br>Startup类包含：</p>
+<ul>
+<li><code>ConfigureServices</code>  方法，用于配置应用的服务，每个服务是提供了该应用所需功能的可重用组件，通过在 <code>ConfigureServices</code> 中配置服务（也称为服务被注册到 <code>ConfigureServices</code> 中），通过依赖注入（DI）或者<code>IApplicationBuilder.ApplicationServices</code> 使得服务能够在整个应用中使用。</li>
+<li><code>Configure</code> 方法，用于创建应用的请求处理管道。</li>
+</ul>
+<blockquote>
+<p><code>IApplicationBuilder.ApplicationServices</code> 的类型为 <code>IServiceProvider</code><br><code>IServiceProvider</code> 定义了一种机制用于查找一个服务对象；也就是说，它是一个为其他对象提供自定义支持的对象。这个接口由为其他对象提供服务的类或值类型来实现。<code>IServiceProvider</code>  只有 <code>GetService</code>  这一个方法，该方法用于获取提供服务的对象实例。<code>System.Web.HttpContext</code>  （只能在 .NET Framework 中使用）也实现了这个接口。</p>
+</blockquote>
+<p>当应用程序启动时，<code>ConfigureServices</code>  和 <code>Configure</code>  被 ASP.NET Core 运行时调用。Startup 类在应用的 Host 被构建时指定，一般通过调用 Host的构建器（<code>IWebHostBuilder</code> ）<code>WebHostBuilderExtensions.UseStartup&lt;TStartup&gt;</code>  方法来实现。</p>
+<p>Host 提供了 Startup 构造器可用的一些服务。应用可以通 <code>ConfigureServices</code>  方法来添加可选的服务。然后，主机和应用服务都可以在 Configure 和整个应用中使用。 一般使用依赖注入向 Startup 类中注入：</p>
+<ul>
+<li><code>IHostingEnvironment</code>  用于通过环境配置服务</li>
+<li><code>IConfiguration</code>  用于读取配置</li>
+<li><code>ILoggerFactory</code> 用于在<code>ConfigureServices</code> 创建一个 Logger。</li>
+</ul>
+<p>另一种注入<code>IHostingEnvironment</code>  的方法是，使用基于约定的方式。<br>当应用针对不同的环境定义单独的 Startup 类时，（例如在开发环境中定义的 StartupDevelopment 类），特定的 Startup 类在运行时被选定，类名称的后缀与当前环境匹配的 Startup 将被优先选择。当在开发环境中同时存在 Startup 类 和 StartupDevelopment 类，那么 StartupDevelopment 将会被选择。</p>
+<h4 id="ConfigureServices-方法"><a href="#ConfigureServices-方法" class="headerlink" title="ConfigureServices 方法"></a>ConfigureServices 方法</h4><ul>
+<li>可选</li>
+<li>在 <code>Configure</code> 方法配置应用的服务之前，由 Host 调用。</li>
+<li>配置选项按照阅读设置</li>
+</ul>
+<p>在调用 Startup 的方法之前，Host 会配置一些服务，如：</p>
+<ul>
+<li>HTTP 服务器实现（ Kestrel ）</li>
+<li>中间件组件</li>
+<li>日志记录</li>
+<li>DI</li>
+<li>配置</li>
+</ul>
+<p>对于希望设置更多的功能,可以调用 <code>IServiceCollection</code> 的<code>Add{Service}</code>扩展方法。添加服务到服务容器，使得它在整个应用程序中和 Configure 方法内可用。服务通过依赖关系注入或 <code>ApplicationServices</code> 进行解析。</p>
+<h4 id="Configure-方法"><a href="#Configure-方法" class="headerlink" title="Configure 方法"></a>Configure 方法</h4><p> <code>Configure</code> 方法用于指定应用如何相应 HTTP 请求。可以通过添加中间件到 <code>IApplicationBuilder</code>  的实例来配置请求管道。 <code>IApplicationBuilder</code> 在 <code>Configure</code>  方法中可用，但它没有被注册到服务容器（<code>IServiceCollection</code> ）中，Host 创建了一个  <code>IApplicationBuilder</code>  并且直接传递给 <code>Configure</code>  方法。</p>
+<p>ASP.NET Core 模板配置的管道支持：</p>
+<ul>
+<li>开发人员异常页异常处理程序</li>
+<li>HTTP 严格传输安全性 (HSTS)</li>
+<li>HTTPS 重定向</li>
+<li>静态文件</li>
+<li>一般数据保护条例 (GDPR)</li>
+<li>ASP.NET Core MVC 和 Razor Pages</li>
+</ul>
+<p>每个 <code>Use</code> 扩展方法将一个或多个中间件组件添加到请求管道。 </p>
+<h4 id="简便方式"><a href="#简便方式" class="headerlink" title="简便方式"></a>简便方式</h4><p>要配置服务和请求处理管道，而不使用 Startup 类，可以在在主机生成器（ <code>IWebHostBuilder</code> ）上调用 <code>ConfigureServices</code> 和 <code>Configure</code> 便捷方法。 多次调用 <code>ConfigureServices</code> 方法，前一个将追加到后一个上。 如果存在多个 <code>Configure</code> 方法调用，则使用最后一个 <code>Configure</code> 调用。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/ASP-NET-Core/">ASP.NET Core</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Configuration/">Configuration</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blogs.netkyle.com/2018/08/17/2018-08-17-AspNetCore-Startup/" data-title="Asp.Net Core 之 Startup | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/08/22/2018-08-22-AspNetCore-Host/" title="Asp.Net Core 之 Host">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Asp.Net Core 之 Host</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/08/12/2018-08-12-AspNetCore-Middleware/"  title="Asp.Net Core 之中间件">
+ <strong>下一篇：</strong><br/> 
+ <span>Asp.Net Core 之中间件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2018/08/17/2018-08-17-AspNetCore-Startup/" data-title="Asp.Net Core 之 Startup" data-url="http://blogs.netkyle.com/2018/08/17/2018-08-17-AspNetCore-Startup/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ASP-NET-Core/" title="ASP.NET Core">ASP.NET Core<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Computer/" title="Computer">Computer<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Configuration/" title="Configuration">Configuration<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redis/" title="Redis">Redis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰的博客">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Kyle. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Kyle Li">Kyle Li</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Kyle"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Kyle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

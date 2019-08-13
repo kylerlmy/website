@@ -1,0 +1,589 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Asp.Net Core 之 Configuration | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Kyle Li">
+    
+
+    
+    <meta name="description" content="命名空间using Microsoft.Extensions.Configuration  Host 配置 与 应用配置在应用被配置和运行之前，Host 优先进行配置并启动。Host 的职责时启动应用，以及应用的生命周期管理。Host 配置的键值对将成为应用全局配置的一部分。 默认配置 Host 配置，有以下方式提供：  以 ASPNETCORE_ 为前缀的环境变量 命令行配置   应用配置由以下">
+<meta name="keywords" content="Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asp.Net Core 之 Configuration">
+<meta property="og:url" content="http://blogs.netkyle.com/2018/08/26/2018-08-26-AspNetCore-Configuration/index.html">
+<meta property="og:site_name" content="Kyle">
+<meta property="og:description" content="命名空间using Microsoft.Extensions.Configuration  Host 配置 与 应用配置在应用被配置和运行之前，Host 优先进行配置并启动。Host 的职责时启动应用，以及应用的生命周期管理。Host 配置的键值对将成为应用全局配置的一部分。 默认配置 Host 配置，有以下方式提供：  以 ASPNETCORE_ 为前缀的环境变量 命令行配置   应用配置由以下">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T09:55:14.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Asp.Net Core 之 Configuration">
+<meta name="twitter:description" content="命名空间using Microsoft.Extensions.Configuration  Host 配置 与 应用配置在应用被配置和运行之前，Host 优先进行配置并启动。Host 的职责时启动应用，以及应用的生命周期管理。Host 配置的键值对将成为应用全局配置的一部分。 默认配置 Host 配置，有以下方式提供：  以 ASPNETCORE_ 为前缀的环境变量 命令行配置   应用配置由以下">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:blogs.netkyle.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/26/2018-08-26-AspNetCore-Configuration/" title="Asp.Net Core 之 Configuration" itemprop="url">Asp.Net Core 之 Configuration</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-25T16:00:00.000Z" itemprop="datePublished"> Published 2018-08-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#命名空间"><span class="toc-number">1.</span> <span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Host-配置-与-应用配置"><span class="toc-number">2.</span> <span class="toc-text">Host 配置 与 应用配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认配置"><span class="toc-number">3.</span> <span class="toc-text">默认配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分层配置数据"><span class="toc-number">4.</span> <span class="toc-text">分层配置数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#约定"><span class="toc-number">5.</span> <span class="toc-text">约定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ConfigureAppConfiguration"><span class="toc-number">6.</span> <span class="toc-text">ConfigureAppConfiguration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetValue"><span class="toc-number">7.</span> <span class="toc-text">GetValue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetSection、GetChildren-和-Exists"><span class="toc-number">8.</span> <span class="toc-text">GetSection、GetChildren 和 Exists</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绑定到类"><span class="toc-number">9.</span> <span class="toc-text">绑定到类</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><p><code>using Microsoft.Extensions.Configuration</code> </p>
+<h4 id="Host-配置-与-应用配置"><a href="#Host-配置-与-应用配置" class="headerlink" title="Host 配置 与 应用配置"></a>Host 配置 与 应用配置</h4><p>在应用被配置和运行之前，Host 优先进行配置并启动。Host 的职责时启动应用，以及应用的生命周期管理。Host 配置的键值对将成为应用全局配置的一部分。</p>
+<h4 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h4><ul>
+<li><p>Host 配置，有以下方式提供：</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#environment-variables-configuration-provider" target="_blank" rel="noopener">以 <code>ASPNETCORE_</code> 为前缀的环境变量</a></li>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#command-line-configuration-provider" target="_blank" rel="noopener">命令行配置</a></li>
+</ul>
+</li>
+<li><p>应用配置由以下方式提供：</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#file-configuration-provider" target="_blank" rel="noopener">使用配置文件提供程序 appsettings.json 文件</a></li>
+<li>使用配置文件提供程序的 appsettings.{Environment}.json 文件</li>
+<li>应用的入口程序集运行在 Development 环境时，使用的 <a href="https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=windows" target="_blank" rel="noopener">Secret Manager</a></li>
+<li>使用环境变量配置提供程序的环境变量</li>
+<li>使用命令行配置程序的命令行参数</li>
+</ul>
+</li>
+</ul>
+<h4 id="分层配置数据"><a href="#分层配置数据" class="headerlink" title="分层配置数据"></a>分层配置数据</h4><p>将文件读入配置时，将创建唯一键以保持配置源的原始分层数据结构。 使用冒号 (:) 来展开节和键以保持原始结构。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"section0"</span>: &#123;</span><br><span class="line">    <span class="attr">"key0"</span>: <span class="string">"value"</span>,</span><br><span class="line">    <span class="attr">"key1"</span>: <span class="string">"value"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"section1"</span>: &#123;</span><br><span class="line">    <span class="attr">"key0"</span>: <span class="string">"value"</span>,</span><br><span class="line">    <span class="attr">"key1"</span>: <span class="string">"value"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问：<code>section0:key0</code></p>
+<p>在配置数据中可以使用 <code>GetSection</code>  和 <code>GetChildren</code>  来隔离一个 sections 和 sections 的子元素。</p>
+<h4 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h4><p>在应用启动时，将安装配置提供程序的先后顺序从相应的配置提供程序中读取配置。<br>实现了配置更改检测的配置提供程序（如，<code>AddJsonFile</code>  中指定 <code>reloadOnChange</code> 参数）  ，能够在配置修改后重新加载配置（配置热更新）.。<br>应用的 DI 容器中提供了 <code>IConfiguration</code>。<code>IConfiguration</code> 可以注入到任何需要它的地方。<br>配置提供程序不能使用 DI ，因为 Host 在设置这些配置提供时，DI 还不可用。（即 DI 在配置文件配置完成后运行）</p>
+<p>配置 Key 时采用以下约定：</p>
+<ul>
+<li>Key 不区分大小写</li>
+<li>由不同或相同的配置提供程序来配置相同的 Key 时，按照配置的先后顺序，最后一个配置的生效。</li>
+<li>分层 Key：冒号分隔符 (:) 适用于所有平台。在环境变量中，冒号分隔符可能无法适用于所有平台</li>
+<li><code>ConfigurationBinder</code> 支持使用配置文件中 Key 的索引数组与对象进行绑定。</li>
+</ul>
+<p>配置 Value 时采用的约定：</p>
+<ul>
+<li>Value 为字符串</li>
+<li>NULL 不能作为 Value的值，也不能将其绑定到对象。</li>
+</ul>
+<h4 id="ConfigureAppConfiguration"><a href="#ConfigureAppConfiguration" class="headerlink" title="ConfigureAppConfiguration"></a>ConfigureAppConfiguration</h4><p>在构建 Host 时调用 <code>ConfigureAppConfiguration</code> 来指定应用的配置提供程序，以及 <code>CreateDefaultBuilder</code> 自动添加的配置。<br>在应用启动期间，可以使用 ConfigureAppConfiguration 中提供给应用的配置，也包括 Startup.ConfigureServices 中指定的配置。</p>
+<h4 id="GetValue"><a href="#GetValue" class="headerlink" title="GetValue"></a>GetValue</h4><p><code>ConfigurationBinder.GetValue&lt;T&gt;</code> 从具有指定键的配置中提取一个值，并将其转换为指定类型。 如果未找到该键，会使用调用该方法时指定的默认值。<br>如：<br><code>_config.GetValue&lt;int&gt;(&quot;NumberKey&quot;, 99);</code><br><code>_config 为 通过 DI 获取的一个 IConfiguration 的一个对象</code></p>
+<h4 id="GetSection、GetChildren-和-Exists"><a href="#GetSection、GetChildren-和-Exists" class="headerlink" title="GetSection、GetChildren 和 Exists"></a>GetSection、GetChildren 和 Exists</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//GetSection</span></span><br><span class="line"><span class="keyword">var</span> configSection = _config.GetSection(<span class="string">"section1"</span>);</span><br><span class="line"><span class="keyword">var</span> configSection = _config.GetSection(<span class="string">"section2:subsection0"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//GetChildren</span></span><br><span class="line"><span class="keyword">var</span> configSection = _config.GetSection(<span class="string">"section2"</span>); </span><br><span class="line"><span class="keyword">var</span> children = configSection.GetChildren();</span><br><span class="line"></span><br><span class="line"><span class="comment">//Exists</span></span><br><span class="line"><span class="keyword">var</span> sectionExists =_config.GetSection(<span class="string">"section2:subsection2"</span>).Exists();</span><br></pre></td></tr></table></figure>
+
+<h4 id="绑定到类"><a href="#绑定到类" class="headerlink" title="绑定到类"></a>绑定到类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> starship = <span class="keyword">new</span> Starship();</span><br><span class="line">_config.GetSection(<span class="string">"starship"</span>).Bind(starship);</span><br><span class="line">Starship = starship;</span><br></pre></td></tr></table></figure>
+
+<p><code>ConfigurationBinder.Get&lt;T&gt;</code>  绑定并返回指定类型。 Get<t> 比使用 Bind 更方便。</t></p>
+<p><code>var starship = _config.GetSection(&quot;starship&quot;).Get&lt;Starship&gt;();</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/ASP-NET-Core/">ASP.NET Core</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Configuration/">Configuration</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blogs.netkyle.com/2018/08/26/2018-08-26-AspNetCore-Configuration/" data-title="Asp.Net Core 之 Configuration | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/08/30/2018-08-30-AspNetCore-Options/" title="Asp.Net Core 之 Options">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Asp.Net Core 之 Options</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/08/22/2018-08-22-AspNetCore-Host/"  title="Asp.Net Core 之 Host">
+ <strong>下一篇：</strong><br/> 
+ <span>Asp.Net Core 之 Host
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2018/08/26/2018-08-26-AspNetCore-Configuration/" data-title="Asp.Net Core 之 Configuration" data-url="http://blogs.netkyle.com/2018/08/26/2018-08-26-AspNetCore-Configuration/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ASP-NET-Core/" title="ASP.NET Core">ASP.NET Core<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Computer/" title="Computer">Computer<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Configuration/" title="Configuration">Configuration<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redis/" title="Redis">Redis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰的博客">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Kyle. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Kyle Li">Kyle Li</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Kyle"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Kyle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

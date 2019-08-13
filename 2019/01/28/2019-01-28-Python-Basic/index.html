@@ -1,0 +1,671 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Python 基础入门（一） | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Kyle Li">
+    
+
+    
+    <meta name="description" content="数据类型字面常量是一个常量，值不可以被改变。使用的即为该常量字面意义上的值或内容。举例：5、“this is a string”、“这是个文本”等。 数字数字分为两种类型：整型（Intergers）与浮点数（Floats）。注意：没有单独的long或short型。int 类型可以指定任何大小的整数。 对象Python是强（Strongly）面向对象的，因为所有的一切都是对象， 包括数字、字符串与函">
+<meta name="keywords" content="Python basic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 基础入门（一）">
+<meta property="og:url" content="http://blogs.netkyle.com/2019/01/28/2019-01-28-Python-Basic/index.html">
+<meta property="og:site_name" content="Kyle">
+<meta property="og:description" content="数据类型字面常量是一个常量，值不可以被改变。使用的即为该常量字面意义上的值或内容。举例：5、“this is a string”、“这是个文本”等。 数字数字分为两种类型：整型（Intergers）与浮点数（Floats）。注意：没有单独的long或short型。int 类型可以指定任何大小的整数。 对象Python是强（Strongly）面向对象的，因为所有的一切都是对象， 包括数字、字符串与函">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/01/28/2019-01-28-Python-Basic/priority.png">
+<meta property="og:updated_time" content="2019-08-13T09:31:46.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 基础入门（一）">
+<meta name="twitter:description" content="数据类型字面常量是一个常量，值不可以被改变。使用的即为该常量字面意义上的值或内容。举例：5、“this is a string”、“这是个文本”等。 数字数字分为两种类型：整型（Intergers）与浮点数（Floats）。注意：没有单独的long或short型。int 类型可以指定任何大小的整数。 对象Python是强（Strongly）面向对象的，因为所有的一切都是对象， 包括数字、字符串与函">
+<meta name="twitter:image" content="http://blogs.netkyle.com/2019/01/28/2019-01-28-Python-Basic/priority.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:blogs.netkyle.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/01/28/2019-01-28-Python-Basic/" title="Python 基础入门（一）" itemprop="url">Python 基础入门（一）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
+		
+  <p class="article-time">
+    <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished"> Published 2019-01-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字面常量"><span class="toc-number">1.1.</span> <span class="toc-text">字面常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数字"><span class="toc-number">1.2.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象"><span class="toc-number">1.3.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串"><span class="toc-number">1.4.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单引号与双引号"><span class="toc-number">1.4.1.</span> <span class="toc-text">单引号与双引号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三引号"><span class="toc-number">1.4.2.</span> <span class="toc-text">三引号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串格式化"><span class="toc-number">1.4.3.</span> <span class="toc-text">字符串格式化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转义"><span class="toc-number">1.4.4.</span> <span class="toc-text">转义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原始字符串"><span class="toc-number">1.4.5.</span> <span class="toc-text">原始字符串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符与表达式"><span class="toc-number">2.</span> <span class="toc-text">运算符与表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运算符"><span class="toc-number">2.1.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#求值顺序"><span class="toc-number">2.2.</span> <span class="toc-text">求值顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结合性"><span class="toc-number">2.3.</span> <span class="toc-text">结合性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制流"><span class="toc-number">3.</span> <span class="toc-text">控制流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-语句"><span class="toc-number">3.1.</span> <span class="toc-text">if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#while-语句"><span class="toc-number">3.2.</span> <span class="toc-text">while 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-语句"><span class="toc-number">3.3.</span> <span class="toc-text">for 语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数参数"><span class="toc-number">4.1.</span> <span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局部变量"><span class="toc-number">4.2.</span> <span class="toc-text">局部变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#global-语句"><span class="toc-number">4.3.</span> <span class="toc-text">global 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认参数"><span class="toc-number">4.4.</span> <span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关键字参数"><span class="toc-number">4.5.</span> <span class="toc-text">关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可变参数"><span class="toc-number">4.6.</span> <span class="toc-text">可变参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DocStrings"><span class="toc-number">5.</span> <span class="toc-text">DocStrings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块"><span class="toc-number">6.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#按字节码编译的-pyc文件"><span class="toc-number">6.1.</span> <span class="toc-text">按字节码编译的 .pyc文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#from-import-语句"><span class="toc-number">6.2.</span> <span class="toc-text">from .. import 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块的-name"><span class="toc-number">6.3.</span> <span class="toc-text">模块的 __name__</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dir-函数"><span class="toc-number">6.4.</span> <span class="toc-text">dir 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#包"><span class="toc-number">6.5.</span> <span class="toc-text">包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-number">7.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表"><span class="toc-number">7.1.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元组"><span class="toc-number">7.2.</span> <span class="toc-text">元组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字典"><span class="toc-number">7.3.</span> <span class="toc-text">字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#序列"><span class="toc-number">7.4.</span> <span class="toc-text">序列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#集合"><span class="toc-number">7.5.</span> <span class="toc-text">集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">7.6.</span> <span class="toc-text">引用</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="字面常量"><a href="#字面常量" class="headerlink" title="字面常量"></a>字面常量</h4><p>是一个常量，值不可以被改变。使用的即为该常量字面意义上的值或内容。<br>举例：5、“this is a string”、“这是个文本”等。</p>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><p>数字分为两种类型：整型（Intergers）与浮点数（Floats）。<br><em>注意：没有单独的long或short型。int 类型可以指定任何大小的整数。</em></p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>Python是强（Strongly）面向对象的，因为所有的一切都是对象， 包括数字、字符串与函数。</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>一个字符串是字符的序列（sequence）。<br><em>注意：字符串是不可变的，一旦创造了一个字符串，就不可以再改变。    python 中没有单独的 char 类型。你在程序中使用的所有字符串都是str类下的对象，可以使用 help(str)查看详细信息。</em></p>
+<h5 id="单引号与双引号"><a href="#单引号与双引号" class="headerlink" title="单引号与双引号"></a>单引号与双引号</h5><p>可以使用单引号或双引号指定字符串。被双引号包括的字符串和被单引号包括的字符串的工作机制完全相同。<br><em>注意：所有引号内的空间，比如，空格和制表符，都将按照原样保留。</em></p>
+<h5 id="三引号"><a href="#三引号" class="headerlink" title="三引号"></a>三引号</h5><p>可以是能够用三个引号—— ‘’’ 或 “”” 来指定多行字符串。可以在三个引号直接使用单引号与双引号。<br>例如：<br><code>&#39;&#39;&#39;这是一段多行字符串。这是它的第一行。</code><br><code>This is the second line.</code><br><code>&quot;What&#39;s your name?,&quot; I asked.</code><br><code>He said &quot;Bond, James Bond.&quot;</code><br><code>&#39;&#39;&#39;</code></p>
+<h5 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h5><p>一个字符串可以使用某些特定的格式（Specification），随后， format 方法将被调用，该方法中将与之相应的参数替换这些格式。</p>
+<p>应用举例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 对于浮点数 '0.333' 保留小数点(.)后三位</span></span><br><span class="line">print(<span class="string">'&#123;0:.3f&#125;'</span>.format(<span class="number">1.0</span>/<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用下划线填充文本，并保持文字处于中间位置</span></span><br><span class="line"><span class="comment"># 使用 (^) 定义 '___hello___'字符串长度为 11</span></span><br><span class="line">print(<span class="string">'&#123;0:_^11&#125;'</span>.format(<span class="string">'hello'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基于关键词输出 'Swaroop wrote A Byte of Python'</span></span><br><span class="line">print(<span class="string">'&#123;name&#125; wrote &#123;book&#125;'</span>.format(name=<span class="string">'Swaroop'</span>, book=<span class="string">'A Byte of Python'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#重复字符串,输出'lalala'</span></span><br><span class="line">print(<span class="string">"&#123;0&#125;"</span>.format(<span class="string">'la'</span>*<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<p>*注意：print 方法总是会以一个不可见的 “换行”字符 （\n） 结尾，可以使用 end 指定以空白结尾 *</p>
+<h5 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h5><p>使用 “反斜杠”指定转义字符。<br>例如：在一个字符串中输入一个引号 .<br>‘what’s your name?’  在python中的正确表达是：’what\‘s your name?’只有这样，当遇到第一个引号时，才不至于当成是一个字符串的结束符号。</p>
+<p>其他常用转义符号：<br>放斜杠 “\\“<br>制表符 “\\t”<br><em>在一个字符串中，一个放在一行末尾的放斜杠表示，字符串将在下一行继续，当不会添加新行。</em></p>
+<h5 id="原始字符串"><a href="#原始字符串" class="headerlink" title="原始字符串"></a>原始字符串</h5><p>如果需要指定一些为经过处理的字符串，比如转义序列，可以在字符串前添加 r 或者 R 来指定一个原始字符串。<br>例如：<br><code>print(r&quot;hello world \n&quot;)</code></p>
+<h3 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h3><h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p>基本运算符</p>
+<ul>
+<li>+  （加）</li>
+<li>-    （减）</li>
+<li>*    （乘）</li>
+<li>**   （乘方）</li>
+<li>/    （除）</li>
+<li>//   （整除）</li>
+<li>%    （取模）</li>
+</ul>
+<p>位运算符</p>
+<ul>
+<li>&lt;&lt; （左移）</li>
+<li>&gt;&gt; （右移）</li>
+<li>&amp; （按位与）</li>
+<li>| （按位或）</li>
+<li>^ （按位异或）</li>
+<li>~ （按位取反）</li>
+</ul>
+<p>比较运算符</p>
+<ul>
+<li>&lt; （小于）</li>
+<li>&gt; （大于）</li>
+<li>&lt;= （小于等于）</li>
+<li>&gt;= （大于等于）</li>
+<li>== （等于）</li>
+<li>!= （不等于）</li>
+</ul>
+<p>布尔运算符</p>
+<ul>
+<li>not （布尔“非”）</li>
+<li>and （布尔“与”）</li>
+<li>or （布尔“或”）</li>
+</ul>
+<h4 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a>求值顺序</h4><img src="/2019/01/28/2019-01-28-Python-Basic/priority.png" title="运算优先级">
+
+<p>上图中为从最低优先级到最高优先级的优先级表。</p>
+<h4 id="结合性"><a href="#结合性" class="headerlink" title="结合性"></a>结合性</h4><p>运算符通常由左至右结合。这意味着具有相同优先级的运算符将从左至右的方式依次进行求值。</p>
+<h3 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h3><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><p>if 语句在结尾处包含一个冒号——用于向 Python 指定接下来会有一块语句在后头。<br>elif 和 else 同样都必须有一个冒号在其逻辑行的末尾，后面跟着与它们相应的语句块（别忘了恰当的缩进）。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">number = <span class="number">23</span></span><br><span class="line">guess = int(input(<span class="string">'Enter an integer : '</span>))</span><br><span class="line"><span class="keyword">if</span> guess == number:</span><br><span class="line">    <span class="comment"># 新块从这里开始</span></span><br><span class="line">    print(<span class="string">'Congratulations, you guessed it.'</span>)</span><br><span class="line">    print(<span class="string">'(but you do not win any prizes!)'</span>)</span><br><span class="line">    <span class="comment"># 新块在这里结束</span></span><br><span class="line"><span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">    <span class="comment"># 另一代码块</span></span><br><span class="line">    print(<span class="string">'No, it is a little higher than that'</span>)</span><br><span class="line">    <span class="comment"># 你可以在此做任何你希望在该代码块内进行的事情</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'No, it is a little lower than that'</span>)</span><br><span class="line">    <span class="comment"># 你必须通过猜测一个大于（&gt;）设置数的数字来到达这里。</span></span><br><span class="line">print(<span class="string">'Done'</span></span><br><span class="line"><span class="comment"># 这最后一句语句将在</span></span><br><span class="line"><span class="comment"># if 语句执行完毕后执行。</span></span><br></pre></td></tr></table></figure>
+
+<p><em>注意判断条件中没有小括号</em></p>
+<h4 id="while-语句"><a href="#while-语句" class="headerlink" title="while 语句"></a>while 语句</h4><p>while 语句是 循环语句的一种。 while 语句同样可以拥有 else 子句作为可选选项。else 代码块在 while 循环的条件变为 False 时开始执行。</p>
+<h4 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h4><p>for…in 语句是另一种循环语句，其特点是会在一系列对象上进行迭代（Iterates），即它会遍历序列中的每一个项目。类型与C#中的foreach。<br>与while相同， for循环同样可以拥有 else 子句作为可选选项。当循环中包含else子句时，它总会在 for 循环结束后开始执行，除非程序遇到了 break 语句。</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数（Functions）是指可重复使用的程序片段。它们允许你为某个代码块赋予名字，允许你通过这一特殊的名字在你的程序任何地方来运行代码块，并可重复任何次数。这就是所谓的调（Calling）函数可以通过关键字 def 来定义。这一关键字后跟一个函数的标识符名称，再跟一对圆括号，其中可以包括一些变量的名称，再以冒号结尾，结束这一行。随后而来的语句块是函数的一部分。</p>
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>在定义函数时给定的名称称作“形参”（Parameters）。<br>在调用函数时你所提供给函数的值称作“实参”（Arguments)。<br>函数中的参数通过将其放置在用以定义函数的一对圆括号中指定，并通过逗号予以分隔。当我们调用函数时，我们以同样的形式提供需要的值。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_max</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        print(a, <span class="string">'is maximum'</span>)</span><br><span class="line">    <span class="keyword">elif</span> a == b:</span><br><span class="line">        print(a, <span class="string">'is equal to'</span>, b)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(b, <span class="string">'is maximum'</span>)</span><br><span class="line"><span class="comment"># 直接传递字面值</span></span><br><span class="line">print_max(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="number">7</span></span><br><span class="line"><span class="comment"># 以参数的形式传递</span></span><br><span class="line">print_max(x, y)</span><br></pre></td></tr></table></figure>
+
+<h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><p>当你在一个函数的定义中声明变量时，它们不会以任何方式与身处函数之外但具有相同名称的变量产生关系，也就是说，这些变量名只存在于函数这一局部（Local）。这被称为变量的作用域（Scope）。</p>
+<h4 id="global-语句"><a href="#global-语句" class="headerlink" title="global 语句"></a>global 语句</h4><p>如果你想给一个在程序顶层的变量赋值（也就是说它不存在于任何作用域中，无论是函数还是类），那么你必须告诉 Python 这一变量并非局部的，而是全局（Global）的。我们需要通global 语句来完成这件事。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    print(<span class="string">'x is'</span>, x)</span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    print(<span class="string">'Changed global x to'</span>, x)</span><br><span class="line">    </span><br><span class="line">func()</span><br><span class="line">print(<span class="string">'Value of x is'</span>, x)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p>x is 50<br>Changed global x to 2<br>Value of x is 2</p>
+<p>global 语句用以声明 x 是一个全局变量——因此，当我们在函数中为 x 进行赋值时，这一改动将影响到我们在主代码块中使用的 x 的值。</p>
+<h4 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h4><p>你可能为希望使一些参数可选并使用默认的值，以避免用户不想为他们提供值的情况。默认参数值可以有效帮助解决这一情况。你可以通过在函数定义时附加一个赋值运算符（=）来为参数指定默认参数值。<br>示例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(message, times=<span class="number">1</span>)</span>:</span></span><br><span class="line">    print(message * times)</span><br><span class="line">    </span><br><span class="line">say(<span class="string">'Hello'</span>)</span><br><span class="line">say(<span class="string">'World'</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p><em>只有那些位于参数列表末尾的参数才能被赋予默认参数值，即在函数的参数列表中拥有默认参数值的参数不能位于没有默认参数值的参数之前。</em></p>
+<h4 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h4><p>如果你有一些具有许多参数的函数，而你又希望只对其中的一些进行指定，那么你可以通过命名它们来给这些参数赋值。这就是关键字参数。</p>
+<p>关键字参数的优点：</p>
+<ul>
+<li>不需要考虑参数的顺序，函数的使用将更加容易</li>
+<li>可以只对那些希望赋值的参数赋值，只要其它的参数都具有默认参数值即可。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a, b=<span class="number">5</span>, c=<span class="number">10</span>)</span>:</span></span><br><span class="line">    print(<span class="string">'a is'</span>, a, <span class="string">'and b is'</span>, b, <span class="string">'and c is'</span>, c)</span><br><span class="line">    </span><br><span class="line">func(<span class="number">3</span>, <span class="number">7</span>)</span><br><span class="line">func(<span class="number">25</span>, c=<span class="number">24</span>)</span><br><span class="line">func(c=<span class="number">50</span>, a=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h4><p>有时你可能想定义的函数里面能够有任意数量的变量，也就是参数数量是可变的，这可以通过使用星号来实现。<br>声明一个如  <code>*param</code> 的星号参数时，从此处开始直到结束的所有位置参数（Positional Arguments）都将被收集并汇集成一个称为“param”的元组（Tuple）。<br>声明一个如 <code>**param</code> 的双星号参数时，从此处开始直至结束的所有关键字参数都将被收集并汇集成一个名为 param 的字典（Dictionary）。</p>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">total</span><span class="params">(a=<span class="number">5</span>, *numbers, **phonebook)</span>:</span></span><br><span class="line">    print(<span class="string">'a'</span>, a)</span><br><span class="line">    <span class="comment">#遍历元组中的所有项目</span></span><br><span class="line">    <span class="keyword">for</span> single_item <span class="keyword">in</span> numbers:</span><br><span class="line">        print(<span class="string">'single_item'</span>, single_item)</span><br><span class="line">        </span><br><span class="line">    <span class="comment">#遍历字典中的所有项目</span></span><br><span class="line">    <span class="keyword">for</span> first_part, second_part <span class="keyword">in</span> phonebook.items():</span><br><span class="line">        print(first_part,second_part)</span><br><span class="line">        </span><br><span class="line">print(total(<span class="number">10</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,Jack=<span class="number">1123</span>,John=<span class="number">2231</span>,Inge=<span class="number">1560</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="DocStrings"><a href="#DocStrings" class="headerlink" title="DocStrings"></a>DocStrings</h3><p>文档字符串所约定的是一串多行字符串，其中第一行以某一大写字母开始，以句号结束。第二行为空行，后跟的第三行开始是任何详细的解释说明。<br>同样适用于类和模块的描述。<br>可以通过使用函数的 <code>\_\_doc__</code>（注意其中的双下划线）属性（属于函数的名称）来获取函数的文档字符串属性。<br>Python 的 help() 函数，它所做的便是获取函数的  <code>\_\_doc__</code> 属性并以一种整洁的方式将其呈现给你。<br>自动化工具可以以这种方式检索你的程序中的文档。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_max</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="string">'''打印两个数值中的最大数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这两个数都应该是整数'''</span></span><br><span class="line">    <span class="comment"># 如果可能，将其转换至整数类型</span></span><br><span class="line">    x = int(x)</span><br><span class="line">    y = int(y)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> x &gt; y:</span><br><span class="line">        print(x, <span class="string">'is maximum'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(y, <span class="string">'is maximum'</span>)</span><br><span class="line">    </span><br><span class="line">print_max(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">print(print_max.__doc__)</span><br></pre></td></tr></table></figure>
+
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>可以使用模块来在你编写的别的程序中重用一些函数。<br>编写模块有很多种方法，其中最简单的一种是创建一个包含函数与变量，并且以 .py 为后缀的文件。<br>另一种方法是使用编写 Python 解释器本身的本地语言来编写模块。例 如，你可以使用 C语言来撰写 Python 模块，并且在编译后，你可以通过标准 Python 解释器在你的 Python 代码中使用它们。<br>一个模块可以被其它程序导入并运用其功能。</p>
+<h4 id="按字节码编译的-pyc文件"><a href="#按字节码编译的-pyc文件" class="headerlink" title="按字节码编译的 .pyc文件"></a>按字节码编译的 .pyc文件</h4><p>导入一个模块是一件代价高昂的事情，因此 Python 引入了一些技巧使其能够更快速的完成。其中一种方式便是创建按字节码编译的（Byte-Compiled）文件，这一文件以  <code>.pyc</code> 为其扩展名，是将 Python 转换成中间形式的文件。<br><em>注意：这些 .pyc 文件通常会创建在对应的 .py 文件所处的目录中。如果 Python 没有相应的权限对这一目录进行写入文件的操作，那么 .pyc 文件将不会被创建。</em></p>
+<h4 id="from-import-语句"><a href="#from-import-语句" class="headerlink" title="from .. import 语句"></a>from .. import 语句</h4><p>示例<br><code>from math import sqrt</code></p>
+<p>一般来说，你应该尽量避免使用 <code>from...import</code> 语句，而去使用 import 语句。这是为了避免在你的程序中出现名称冲突，同时也为了使程序更加易读。</p>
+<h4 id="模块的-name"><a href="#模块的-name" class="headerlink" title="模块的 __name__"></a>模块的 __name__</h4><p>每个模块都有一个名称，而模块中的语句可以找到它们所处的模块的名称。这对于确定模块是独立运行的还是被导入进来运行的这一特定目的来说非常有用。<br>可以使用 __name__ 属性来判断所引用的模块是，其自身的还是导入的。以下针对不同的模块以不同的方式运行。</p>
+<p>示例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">'This program is being run by itself'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'I am being imported from another module'</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Python 的一大指导原则是“明了胜过晦涩” 。你可以通过在 Python 中运行 import this来了解更多内容。</p>
+</blockquote>
+<h4 id="dir-函数"><a href="#dir-函数" class="headerlink" title="dir 函数"></a>dir 函数</h4><p>dir() 函数能够返回由对象所定义的名称列表。 如果这一对象是一个模块，则该列表会包括函数内所定义的函数、类与变量。<br>该函数接受参数。 如果参数是模块名称，函数将返回这一指定模块的名称列表。 如果没有提供参数，函数将返回当前模块的名称列表。</p>
+<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><p>用以组织程序的层次结构。变量通常位于函数内部，函数与全局变量通常位于模块内部，模块通常位于包的内部。<br>包是指一个包含模块与一个特殊的 <code>\_\_init__.py</code> 文件的文件夹。<br>如同函数是程序中的可重用部分那样，模块是一种可重用的程序。包是用以组织模块的另一种层次结构。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>数据结构（Data Structures）它们只是一种结构，能够将一些数据聚合在一起。换句话说，它们是用来存储一系列相关数据的集合。<br>Python 中有四种内置的数据结构，列表（List）、元组（Tuple）、字典（Dictionary）和集合（Set）。</p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>列表 是一种用于保存一系列有序项目的集合。列表也是一个序列。<br>列表应该用方括号括起来，列表中的各个子项以逗号分隔。一旦你创建<br>了一张列表，你可以添加、移除或搜索列表中的项。由于列表可以添加和删除，所以说，说列表是一种可变的（Mutable）数据类型。</p>
+<p>例如：<br><code>shoplist = [&#39;apple&#39;, &#39;mango&#39;, &#39;carrot&#39;, &#39;banana&#39;]</code></p>
+<p>列表是使用对象与类的实例。<br>列表拥有很多实例成员，可以通过help(list)查看。</p>
+<h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h4><p>元组（Tuple）用于将多个对象保存到一起。你可以将它们近似地看作列表，但是元组不能提供列表类能够提供给你的广泛的功能。元组的一大特征类似于字符串，它们是不可变的，也就是说，你不能编辑或更改元组。<br>元组是通过特别指定项目来定义的，在指定项目时，你可以给它们加上括号，并在括号内部用逗号进行分隔。</p>
+<p>例如:<br><code>zoo = (&#39;python&#39;, &#39;elephant&#39;, &#39;penguin&#39;)</code></p>
+<p>元组通常用于保证某一语句或某一用户定义的函数可以安全地采用一组数值，意即元组内的数值不会改变。<br><em>注：包含 0 或 1 个项目的元组;一个空的元组由一对圆括号构成，就像 myempty = () 这样。然而，一个只拥有一个项目的元组并不像这样简单。你必须在第一个（也是唯一一个）项目的后面加上一个逗号来指定它,例如：</em><code>singleton = (2, )</code> </p>
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><p>字典将键（Keys）与值（Values）联立到一起。在这里要注意到键值必须是唯一的。<br>另外要注意的是你只能使用不可变的对象（如字符串）作为字典的键值，但是你可以使用可变或不可变的对象作为字典中的值。也就是说你只能使用简单对象作为键值。<br>在字典中，你可以使用 <code>d = {key : value1 , key2 : value2}</code>这样的形式，来成对地指定键值与值。在这里要注意到成对的键值与值之间使用冒号分隔，而每一对键值与值则使用逗号进行区分，它们全都由一对花括号括起来。<br>字典中的成对的键值—值配对不会以任何方式进行排序。如果你希望为它们<br>安排一个特别的次序，只能在使用它们之前自行进行排序。</p>
+<p>示例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># “ab”是地址（Address）簿（Book）的缩写</span></span><br><span class="line"></span><br><span class="line">ab = &#123;</span><br><span class="line"><span class="string">'Swaroop'</span>: <span class="string">'swaroop@swaroopch.com'</span>,</span><br><span class="line"><span class="string">'Larry'</span>: <span class="string">'larry@wall.org'</span>,</span><br><span class="line"><span class="string">'Matsumoto'</span>: <span class="string">'matz@ruby-lang.org'</span>,</span><br><span class="line"><span class="string">'Spammer'</span>: <span class="string">'spammer@hotmail.com'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Swaroop's address is"</span>, ab[<span class="string">'Swaroop'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一对键值—值配对</span></span><br><span class="line"><span class="keyword">del</span> ab[<span class="string">'Spammer'</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\nThere are &#123;&#125; contacts in the address-book\n'</span>.format(len(ab)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name, address <span class="keyword">in</span> ab.items():</span><br><span class="line">    print(<span class="string">'Contact &#123;&#125; at &#123;&#125;'</span>.format(name, address))</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 添加一对键值—值配对</span></span><br><span class="line">ab[<span class="string">'Guido'</span>] = <span class="string">'guido@python.org'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">'Guido'</span> <span class="keyword">in</span> ab:</span><br><span class="line">    print(<span class="string">"\nGuido's address is"</span>, ab[<span class="string">'Guido'</span>])</span><br></pre></td></tr></table></figure>
+
+<p>可以通过使用字典的 items 方法来访问字典中的每一对键值—值配对信息，这一操作将返回一份包含元组的列表，每一元组中则包含了每一对相应的信息<br>想增加一堆新的键值—值配对，我们可以简单地通过使用索引运算符访问一个键值并为其分配与之相应的值。<br>可以使用 in 运算符来检查某对键值是否存在。</p>
+<h4 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h4><p>列表、元组和字符串可以看作序列（Sequence）的某种表现形式。<br>序列的主要功能是判断某个项是否存在（也就是 in 与 not in 表达式）和索引操作（Indexing Operations），它们能够允许我们直接获取序列中的特定项目。<br>序列的三种形态——列表、元组与字符串，都拥有一种切片（Slicing）运算符，它能够允许我们访问序列中的某段切片——也就是序列之中的一部分。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">shoplist = [<span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'carrot'</span>, <span class="string">'banana'</span>]</span><br><span class="line">name = <span class="string">'swaroop'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Indexing or 'Subscription' operation #</span></span><br><span class="line"><span class="comment"># 索引或“下标（Subscription）”操作符 #</span></span><br><span class="line">print(<span class="string">'Item 0 is'</span>, shoplist[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'Item 1 is'</span>, shoplist[<span class="number">1</span>])</span><br><span class="line">print(<span class="string">'Item 2 is'</span>, shoplist[<span class="number">2</span>])</span><br><span class="line">print(<span class="string">'Item 3 is'</span>, shoplist[<span class="number">3</span>])</span><br><span class="line">print(<span class="string">'Item -1 is'</span>, shoplist[<span class="number">-1</span>])</span><br><span class="line">print(<span class="string">'Item -2 is'</span>, shoplist[<span class="number">-2</span>])</span><br><span class="line">print(<span class="string">'Character 0 is'</span>, name[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Slicing on a list #</span></span><br><span class="line">print(<span class="string">'Item 1 to 3 is'</span>, shoplist[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line">print(<span class="string">'Item 2 to end is'</span>, shoplist[<span class="number">2</span>:])</span><br><span class="line">print(<span class="string">'Item 1 to -1 is'</span>, shoplist[<span class="number">1</span>:<span class="number">-1</span>])</span><br><span class="line">print(<span class="string">'Item start to end is'</span>, shoplist[:])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从某一字符串中切片 #</span></span><br><span class="line">print(<span class="string">'characters 1 to 3 is'</span>, name[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line">print(<span class="string">'characters 2 to end is'</span>, name[<span class="number">2</span>:])</span><br><span class="line">print(<span class="string">'characters 1 to -1 is'</span>, name[<span class="number">1</span>:<span class="number">-1</span>])</span><br><span class="line">print(<span class="string">'characters start to end is'</span>, name[:])</span><br></pre></td></tr></table></figure>
+
+<p>索引操作也可以使用负数，在这种情况下，位置计数将从队列的末尾开始。<br>你需要通过指定序列名称来进行序列操作，在指定时序列名称后面可以跟一对数字——这是可选的操作，这一对数字使用方括号括起，并使用冒号分隔。需要注意这里的数字是可选的，冒号却不是。<br>在切片操作中，第一个数字（冒号前面的那位）指的是切片开始的位置，第二个数字（冒号后面的那位）指的是切片结束的位置。如果第一位数字没有指定，Python 将会从序列的起始处开始操作。如果第二个数字留空，Python 将会在序列的末尾结束操作。要注意的是切片操作会在开始处返回 start，并在 end 前面的位置结束工作。也就是说，序列切片将包括起始位置，但不包括结束位置。</p>
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><p>集合（Set）是简单对象的无序集合（Collection）。当集合中的项是否存在比次序或其出现次数更加重要时，我们就会使用集合。<br>通过使用集合，你可以测试某些对象是否存在，检查它们是否是其它集合的子集，找到两个集合的交集，等等。</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>当你创建了一个对象并将其分配给某个变量时，变量只会查阅（Refer）某个对象，并且它也不会代表对象本身。也就是说，变量名只是指向你计算机内存中存储了相应对象的那一部分。这叫作将名称绑定（Binding）给那一个对象。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python-basic/">Python basic</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blogs.netkyle.com/2019/01/28/2019-01-28-Python-Basic/" data-title="Python 基础入门（一） | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/05/21/2019-05-21-Basic-Algorithm/" title="数据结构与算法基础">
+  <strong>上一篇：</strong><br/>
+  <span>
+  数据结构与算法基础</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/11/21/2018-11-21-Redis-Basic/"  title="Redis 基础配置">
+ <strong>下一篇：</strong><br/> 
+ <span>Redis 基础配置
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2019/01/28/2019-01-28-Python-Basic/" data-title="Python 基础入门（一）" data-url="http://blogs.netkyle.com/2019/01/28/2019-01-28-Python-Basic/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ASP-NET-Core/" title="ASP.NET Core">ASP.NET Core<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Computer/" title="Computer">Computer<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Configuration/" title="Configuration">Configuration<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redis/" title="Redis">Redis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰的博客">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Kyle. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Kyle Li">Kyle Li</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Kyle"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Kyle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

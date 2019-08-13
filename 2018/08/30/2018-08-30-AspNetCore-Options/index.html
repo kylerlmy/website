@@ -1,0 +1,568 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Asp.Net Core 之 Options | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Kyle Li">
+    
+
+    
+    <meta name="description" content="Options 模式Options 模式使用类来代表一组关联的设置。当配置设置由于使用场景而被隔离到单独的类时，应用遵循两个重要软件工程原则：  接口隔离原则（ISP）依赖于配置设置的类，仅仅只依赖于他们用到的配置设置。 关注点分离原则应用的不同部分的设置不彼此依赖或相互耦合。  Options 也提供了验证配置数据的机制。 引用Microsoft.Extensions.Options.Confi">
+<meta name="keywords" content="Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asp.Net Core 之 Options">
+<meta property="og:url" content="http://blogs.netkyle.com/2018/08/30/2018-08-30-AspNetCore-Options/index.html">
+<meta property="og:site_name" content="Kyle">
+<meta property="og:description" content="Options 模式Options 模式使用类来代表一组关联的设置。当配置设置由于使用场景而被隔离到单独的类时，应用遵循两个重要软件工程原则：  接口隔离原则（ISP）依赖于配置设置的类，仅仅只依赖于他们用到的配置设置。 关注点分离原则应用的不同部分的设置不彼此依赖或相互耦合。  Options 也提供了验证配置数据的机制。 引用Microsoft.Extensions.Options.Confi">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T09:57:04.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Asp.Net Core 之 Options">
+<meta name="twitter:description" content="Options 模式Options 模式使用类来代表一组关联的设置。当配置设置由于使用场景而被隔离到单独的类时，应用遵循两个重要软件工程原则：  接口隔离原则（ISP）依赖于配置设置的类，仅仅只依赖于他们用到的配置设置。 关注点分离原则应用的不同部分的设置不彼此依赖或相互耦合。  Options 也提供了验证配置数据的机制。 引用Microsoft.Extensions.Options.Confi">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:blogs.netkyle.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/30/2018-08-30-AspNetCore-Options/" title="Asp.Net Core 之 Options" itemprop="url">Asp.Net Core 之 Options</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-29T16:00:00.000Z" itemprop="datePublished"> Published 2018-08-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Options-模式"><span class="toc-number">1.</span> <span class="toc-text">Options 模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">2.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Options-接口"><span class="toc-number">3.</span> <span class="toc-text">Options 接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常规选项设置"><span class="toc-number">4.</span> <span class="toc-text">常规选项设置</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="Options-模式"><a href="#Options-模式" class="headerlink" title="Options 模式"></a>Options 模式</h4><p>Options 模式使用类来代表一组关联的设置。当配置设置由于使用场景而被隔离到单独的类时，应用遵循两个重要软件工程原则：</p>
+<ul>
+<li>接口隔离原则（ISP）<br>依赖于配置设置的类，仅仅只依赖于他们用到的配置设置。</li>
+<li>关注点分离原则<br>应用的不同部分的设置不彼此依赖或相互耦合。</li>
+</ul>
+<p>Options 也提供了<a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.2#options-validation" target="_blank" rel="noopener">验证配置数据的机制</a>。</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p><code>Microsoft.Extensions.Options.ConfigurationExtensions</code></p>
+<h4 id="Options-接口"><a href="#Options-接口" class="headerlink" title="Options 接口"></a>Options 接口</h4><p><code>IOptionsMonitor&lt;TOptions&gt;</code>  用于检索 Options 并管理 TOptions 实例的选项通知。<code>IOptionsMonitor&lt;TOptions&gt;</code> 支持以下场景:</p>
+<ul>
+<li>修改通知</li>
+<li>Options 命名</li>
+<li>可重载配置</li>
+<li>选择性 Options 失效 <code>IOptionsMonitorCache&lt;TOptions&gt;</code></li>
+</ul>
+<h4 id="常规选项设置"><a href="#常规选项设置" class="headerlink" title="常规选项设置"></a>常规选项设置</h4><p>配置文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"option1"</span>: <span class="string">"value1_from_json"</span>,</span><br><span class="line">  <span class="attr">"option2"</span>: <span class="number">-1</span>,</span><br><span class="line">  <span class="attr">"subsection"</span>: &#123;</span><br><span class="line">    <span class="attr">"suboption1"</span>: <span class="string">"subvalue1_from_json"</span>,</span><br><span class="line">    <span class="attr">"suboption2"</span>: <span class="number">200</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"Logging"</span>: &#123;</span><br><span class="line">    <span class="attr">"LogLevel"</span>: &#123;</span><br><span class="line">      <span class="attr">"Default"</span>: <span class="string">"Warning"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"AllowedHosts"</span>: <span class="string">"*"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实体类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//配置实体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyOptions</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyOptions</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Set default value.</span></span><br><span class="line">        Option1 = <span class="string">"value1_from_ctor"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> string Option1 &#123; get; set; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Option2 &#123; get; set; &#125; = <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子选项配置实体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySubOptions</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MySubOptions</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Set default values.</span></span><br><span class="line">        SubOption1 = <span class="string">"value1_from_ctor"</span>;</span><br><span class="line">        SubOption2 = <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> string SubOption1 &#123; get; set; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> SubOption2 &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Startup 类的 ConfigureServices 方法中，将 MyOptions 添加到服务容器，并绑定到配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Example #1: General configuration</span></span><br><span class="line"><span class="comment">// Register the Configuration instance which MyOptions binds against.</span></span><br><span class="line">services.Configure&lt;MyOptions&gt;(Configuration);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Example #2: Suboptions</span></span><br><span class="line"><span class="comment">// Bind options using a sub-section of the appsettings.json file.</span></span><br><span class="line">services.Configure&lt;MySubOptions&gt;.(Configuration.GetSection(<span class="string">"subsection"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Example #3: Snapshot option</span></span><br><span class="line"><span class="comment">//不需要添加额外配置，使用 Example #1 的配置。</span></span><br></pre></td></tr></table></figure>
+
+<p>在需要使用该配置的地方使用它：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字段</span></span><br><span class="line"><span class="keyword">private</span> readonly MyOptions _options;</span><br><span class="line"><span class="keyword">private</span> readonly MySubOptions _subOptions;<span class="comment">//子选项配置</span></span><br><span class="line"><span class="keyword">private</span> readonly MyOptions _snapshotOptions;<span class="comment">//可重载配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">IndexModel</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    IOptionsMonitor&lt;MyOptions&gt; optionsAccessor, </span></span></span><br><span class="line"><span class="function"><span class="params">    IOptionsSnapshot&lt;MyOptions&gt; snapshotOptionsAccessor,</span></span></span><br><span class="line"><span class="function"><span class="params">    OptionsMonitor&lt;MySubOptions&gt; subOptionsAccessor)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _options = optionsAccessor.CurrentValue;</span><br><span class="line"> _subOptions = subOptionsAccessor.CurrentValue;</span><br><span class="line">    _snapshotOptions = snapshotOptionsAccessor.Value;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//使用</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// Example #1: Simple options</span></span><br><span class="line"><span class="keyword">var</span> option1 = _options.Option1;</span><br><span class="line"><span class="keyword">var</span> option2 = _options.Option2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Example #2: Suboptions</span></span><br><span class="line"><span class="keyword">var</span> subOption1 = _subOptions.SubOption1;</span><br><span class="line"><span class="keyword">var</span> subOption2 = _subOptions.SubOption2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Example #3: Snapshot options</span></span><br><span class="line"><span class="keyword">var</span> snapshotOption1 = _snapshotOptions.Option1;</span><br><span class="line"><span class="keyword">var</span> snapshotOption2 = _snapshotOptions.Option2;</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/ASP-NET-Core/">ASP.NET Core</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Configuration/">Configuration</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blogs.netkyle.com/2018/08/30/2018-08-30-AspNetCore-Options/" data-title="Asp.Net Core 之 Options | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/11/21/2018-11-21-Redis-Basic/" title="Redis 基础配置">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Redis 基础配置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/08/26/2018-08-26-AspNetCore-Configuration/"  title="Asp.Net Core 之 Configuration">
+ <strong>下一篇：</strong><br/> 
+ <span>Asp.Net Core 之 Configuration
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2018/08/30/2018-08-30-AspNetCore-Options/" data-title="Asp.Net Core 之 Options" data-url="http://blogs.netkyle.com/2018/08/30/2018-08-30-AspNetCore-Options/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ASP-NET-Core/" title="ASP.NET Core">ASP.NET Core<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Computer/" title="Computer">Computer<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Configuration/" title="Configuration">Configuration<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redis/" title="Redis">Redis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰的博客">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Kyle. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Kyle Li">Kyle Li</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Kyle"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Kyle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
