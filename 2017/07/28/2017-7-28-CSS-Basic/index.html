@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Kyle">
 <meta property="og:description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。  CSS 如何工作   浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T10:24:52.597Z">
+<meta property="og:updated_time" content="2019-08-13T10:58:17.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 基础">
 <meta name="twitter:description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。  CSS 如何工作   浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。">
@@ -121,7 +121,9 @@
 <li>内嵌样式 <code>&lt;p style=&quot;color:red;&quot;&gt;This is my first CSS example&lt;/p&gt;</code></li>
 </ul>
 <h4 id="CSS声明"><a href="#CSS声明" class="headerlink" title="CSS声明"></a>CSS声明</h4>
+
 <h4 id="CSS-选择器和规则"><a href="#CSS-选择器和规则" class="headerlink" title="CSS 选择器和规则"></a>CSS 选择器和规则</h4><p>哪些元素是它们需要应用的。通过在每个声明块前加上选择器（selector）来完成这一动作，选择器是一种模式，它能在页面上匹配一些元素。这将使相关的声明仅被应用到被选择的元素上。选择器加上声明块被称为规则集（ruleset），通常简称规则（rule）</p>
+
 
 <p>一个元素可以被多个选择器所匹配，因此，一个给定的属性可能被多个规则设置多次。 CSS 定义了哪个规则比其它规则更具优先级，则更具优先级的规则必定被应用：这被称为层叠算法（cascade algorithm）</p>
 <h4 id="CSS-语句"><a href="#CSS-语句" class="headerlink" title="CSS 语句"></a>CSS 语句</h4><p>CSS 规则是样式表的主要组成块 ，这是在 CSS 中最常见的块。但这有一些其它类型的块</p>
@@ -176,6 +178,7 @@ padding: 5px;
 </li>
 </ul>
 <h4 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h4><p>匹配处于确定状态的一个或多个元素，比如被鼠标指针悬停的元素。一个 CSS  伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类（pseudo-class）。</p>
+
 
 <p><code>a:visited {
   color: blue;
@@ -293,33 +296,24 @@ padding: 5px;
 </li>
 </ul>
 <h3 id="框模型"><a href="#框模型" class="headerlink" title="框模型"></a>框模型</h3><ul>
-<li><p>框属性<br>文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。框的内容、内边距、边界和外边距像洋葱的膜那样，一层包着一层构建起来。浏览器渲染网页布局时，它会算出每个框的内容要用什么样式，周围的洋葱层有多大，以及框相对于其它框放在哪里。默认情况下，content的width 被设置为可用空间的100%（在margin, border, padding占据了它们的空间后剩下的空间的宽度）。</p>
-<ul>
+<li>框属性<br>文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。框的内容、内边距、边界和外边距像洋葱的膜那样，一层包着一层构建起来。浏览器渲染网页布局时，它会算出每个框的内容要用什么样式，周围的洋葱层有多大，以及框相对于其它框放在哪里。默认情况下，content的width 被设置为可用空间的100%（在margin, border, padding占据了它们的空间后剩下的空间的宽度）。<ul>
 <li>高度<br>padding+ border + height = 盒子的高度。<strong>框的高度不遵守百分比的长度；框的高度总是采用框内容的高度</strong>，除非指定一个绝对的高度（如：px 或者em），它会比在页面上默认是100%高度更实用。border也忽略百分比宽度设置。框的总宽度是width, padding-right, padding-left, border-right, 以及 border-left 属性之和。</li>
 <li>宽度<br>盒子的宽度(在页面呈现出来的宽度)，需要加上一些其它的属性：padding + border + width= 盒子的宽度。<br>如果将盒子的宽度设置为 200px ,而实际呈现的盒子的宽度可能会大于 200px,(除非没有 border 和 padding)，CSS设置的宽度仅仅是内容区的宽度，而非盒子的宽度。当我们希望页面呈现的盒子的宽度是200px的时候，我们需要减去它的左右边框和左右补白，然后设置为对应的CSS宽度。</li>
 </ul>
 </li>
-<li><p>使用 box-sizing 对盒子进行布局：<br>语法：box-sizing: content-box | border-box | inherit;<br>当使用 box-sizing:border-box时，设置 height 为200px，则设置的直接即为盒子的高度/宽度，而非内容的高度/宽度。当再设置它的左右边框和左右补白(padding)后，它的内容区会自动调整。</p>
-</li>
-<li><p>溢流 （overflow）<br>当你使用绝对的值设置了一个框的大小（如，固定像素的宽/高），允许的大小可能不适合放置内容，这种情况下内容会从盒子溢流。我们使用overflow属性来控制这种情况的发生。它有一些可能的值，但是最常用的是：</p>
-<ul>
+<li>使用 box-sizing 对盒子进行布局：<br>语法：box-sizing: content-box | border-box | inherit;<br>当使用 box-sizing:border-box时，设置 height 为200px，则设置的直接即为盒子的高度/宽度，而非内容的高度/宽度。当再设置它的左右边框和左右补白(padding)后，它的内容区会自动调整。</li>
+<li>溢流 （overflow）<br>当你使用绝对的值设置了一个框的大小（如，固定像素的宽/高），允许的大小可能不适合放置内容，这种情况下内容会从盒子溢流。我们使用overflow属性来控制这种情况的发生。它有一些可能的值，但是最常用的是：<ul>
 <li>auto<br>当内容过多，溢流的内容被隐藏，然后出现滚动条来让我们滚动查看所有的内容。</li>
 <li>hidden<br>当内容过多，溢流的内容被隐藏。</li>
 <li>visible<br>当内容过多，溢流的内容被显示在盒子的外边（这个是默认的行为）</li>
 </ul>
 </li>
-<li><p>背景剪裁 （Background clip）<br>框的背景是由颜色和图片组成的，它们堆叠在一起（background-color, background-image）。 它们被应用到一个盒子里，然后被画在盒子的下面。默认情况下，背景延伸到了边界外沿。</p>
-</li>
-<li><p>轮廓(Outline)<br>一个框的 outline 是一个看起来像是边界但又不属于框模型的东西。它的行为和边界差不多，但是并不改变框的尺寸（更准确的说，轮廓被勾画于在框边界之外，外边距区域之内）</p>
-</li>
-<li><p>框的类型<br>框的应用都表示的是块级元素的。可以通过display属性来设定元素的框类型。</p>
-<ul>
-<li><p>块框（ block box）<br>是定义为堆放在其他框上的框（例如：其内容会独占一行），而且可以设置它的宽高，之前所有对于框模型的应用适用于块框</p>
-</li>
-<li><p>行内框（ inline box）<br>与块框是相反的，它随着文档的文字流动（例如：它将会和周围的文字和其他行内元素出现在同一行，而且它的内容会像一段中的文字一样随着文字部分的流动而打乱），对行内盒设置宽高无效，设置padding, margin 和 border都会更新周围文字的位置，但是对于周围的的块框（ block box）不会有影响。</p>
-</li>
-<li><p>行内块状框（inline-block box）<br>像是上述两种的集合：它不会重新另起一行但会像行内框（ inline box）一样随着周围文字而流动，而且他能够设置宽高，并且像块框一样保持了其块特性的完整性，它不会在段落行中断开。</p>
-</li>
+<li>背景剪裁 （Background clip）<br>框的背景是由颜色和图片组成的，它们堆叠在一起（background-color, background-image）。 它们被应用到一个盒子里，然后被画在盒子的下面。默认情况下，背景延伸到了边界外沿。</li>
+<li>轮廓(Outline)<br>一个框的 outline 是一个看起来像是边界但又不属于框模型的东西。它的行为和边界差不多，但是并不改变框的尺寸（更准确的说，轮廓被勾画于在框边界之外，外边距区域之内）</li>
+<li>框的类型<br>框的应用都表示的是块级元素的。可以通过display属性来设定元素的框类型。<ul>
+<li>块框（ block box）<br>是定义为堆放在其他框上的框（例如：其内容会独占一行），而且可以设置它的宽高，之前所有对于框模型的应用适用于块框</li>
+<li>行内框（ inline box）<br>与块框是相反的，它随着文档的文字流动（例如：它将会和周围的文字和其他行内元素出现在同一行，而且它的内容会像一段中的文字一样随着文字部分的流动而打乱），对行内盒设置宽高无效，设置padding, margin 和 border都会更新周围文字的位置，但是对于周围的的块框（ block box）不会有影响。</li>
+<li>行内块状框（inline-block box）<br>像是上述两种的集合：它不会重新另起一行但会像行内框（ inline box）一样随着周围文字而流动，而且他能够设置宽高，并且像块框一样保持了其块特性的完整性，它不会在段落行中断开。</li>
 </ul>
 </li>
 </ul>
@@ -597,15 +591,19 @@ padding: 5px;
 			
 		
 			
-				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
 			
 		
 			
@@ -614,10 +612,6 @@ padding: 5px;
 		
 			
 				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
 			
 		
 			
