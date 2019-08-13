@@ -19,15 +19,15 @@
 <meta property="og:site_name" content="Kyle">
 <meta property="og:description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。  CSS 如何工作   浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/CSSWorkPrinciple.png">
-<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/CSSWorkPrinciple.png">
-<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/CSSRuleset.png">
-<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/PseudoClassElements.png">
-<meta property="og:updated_time" content="2019-08-13T10:58:17.033Z">
+<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/css_work_principle.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/css_declaration.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/css_ruleset.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/pseudo_class_elements.png">
+<meta property="og:updated_time" content="2019-08-13T11:15:47.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 基础">
 <meta name="twitter:description" content="CSS 基础语法CSS 如何影响 HTML一个CSS规则由以下组成  一组 属性 ，属性的值更新了 HTML 的内容的显示方式。 一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。  CSS 如何工作   浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。  浏览器显示 DOM 的内容。">
-<meta name="twitter:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/CSSWorkPrinciple.png">
+<meta name="twitter:image" content="http://blogs.netkyle.com/2017/07/28/2017-7-28-CSS-Basic/css_work_principle.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
@@ -112,7 +112,7 @@
 <li>一组 属性 ，属性的值更新了 HTML 的内容的显示方式。</li>
 <li>一个 选择器，它选择元素，这（些）元素是你想应用这些最新的属性值于其上的元素。</li>
 </ul>
-<h4 id="CSS-如何工作"><a href="#CSS-如何工作" class="headerlink" title="CSS 如何工作"></a>CSS 如何工作</h4><img src="/2017/07/28/2017-7-28-CSS-Basic/CSSWorkPrinciple.png" title="CSS 渲染过程">
+<h4 id="CSS-如何工作"><a href="#CSS-如何工作" class="headerlink" title="CSS 如何工作"></a>CSS 如何工作</h4><img src="/2017/07/28/2017-7-28-CSS-Basic/css_work_principle.png" title="CSS 渲染过程">
 
 <ol>
 <li><p>浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。</p>
@@ -125,10 +125,10 @@
 <li>内部样式表 <code>&lt;style&gt; p { color: red;} &lt;/style&gt;</code></li>
 <li>内嵌样式 <code>&lt;p style=&quot;color:red;&quot;&gt;This is my first CSS example&lt;/p&gt;</code></li>
 </ul>
-<h4 id="CSS声明"><a href="#CSS声明" class="headerlink" title="CSS声明"></a>CSS声明</h4><img src="/2017/07/28/2017-7-28-CSS-Basic/CSSWorkPrinciple.png" title="CSS 声明">
+<h4 id="CSS声明"><a href="#CSS声明" class="headerlink" title="CSS声明"></a>CSS声明</h4><img src="/2017/07/28/2017-7-28-CSS-Basic/css_declaration.png" title="CSS 声明">
 
 <h4 id="CSS-选择器和规则"><a href="#CSS-选择器和规则" class="headerlink" title="CSS 选择器和规则"></a>CSS 选择器和规则</h4><p>哪些元素是它们需要应用的。通过在每个声明块前加上选择器（selector）来完成这一动作，选择器是一种模式，它能在页面上匹配一些元素。这将使相关的声明仅被应用到被选择的元素上。选择器加上声明块被称为规则集（ruleset），通常简称规则（rule）</p>
-<img src="/2017/07/28/2017-7-28-CSS-Basic/CSSRuleset.png" title="CSS 规则集">
+<img src="/2017/07/28/2017-7-28-CSS-Basic/css_ruleset.png" title="CSS 规则集">
 
 <p>一个元素可以被多个选择器所匹配，因此，一个给定的属性可能被多个规则设置多次。 CSS 定义了哪个规则比其它规则更具优先级，则更具优先级的规则必定被应用：这被称为层叠算法（cascade algorithm）</p>
 <h4 id="CSS-语句"><a href="#CSS-语句" class="headerlink" title="CSS 语句"></a>CSS 语句</h4><p>CSS 规则是样式表的主要组成块 ，这是在 CSS 中最常见的块。但这有一些其它类型的块</p>
@@ -183,7 +183,7 @@ padding: 5px;
 </li>
 </ul>
 <h4 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h4><p>匹配处于确定状态的一个或多个元素，比如被鼠标指针悬停的元素。一个 CSS  伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类（pseudo-class）。</p>
-<img src="/2017/07/28/2017-7-28-CSS-Basic/PseudoClassElements.png" title="伪类元素">
+<img src="/2017/07/28/2017-7-28-CSS-Basic/pseudo_class_elements.png" title="伪类元素">
 
 <p><code>a:visited {
   color: blue;
