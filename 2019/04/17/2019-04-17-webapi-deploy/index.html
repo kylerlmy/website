@@ -1,0 +1,623 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Ubuntu 部署 ASP.NET Core API 应用 | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Kyle Li">
+    
+
+    
+    <meta name="description" content="环境框架：.NET Core 2.2系统：Ubuntu 18.04-x64Web 服务器：Nginx 构建并发布应用安装 .NET Core SDK 与 ASP.NET Core 运行时 注册Microsoft密钥和订阅源 12wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb">
+<meta name="keywords" content="Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 部署 ASP.NET Core API 应用">
+<meta property="og:url" content="http://blogs.netkyle.com/2019/04/17/2019-04-17-webapi-deploy/index.html">
+<meta property="og:site_name" content="Kyle">
+<meta property="og:description" content="环境框架：.NET Core 2.2系统：Ubuntu 18.04-x64Web 服务器：Nginx 构建并发布应用安装 .NET Core SDK 与 ASP.NET Core 运行时 注册Microsoft密钥和订阅源 12wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-16T15:30:56.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 部署 ASP.NET Core API 应用">
+<meta name="twitter:description" content="环境框架：.NET Core 2.2系统：Ubuntu 18.04-x64Web 服务器：Nginx 构建并发布应用安装 .NET Core SDK 与 ASP.NET Core 运行时 注册Microsoft密钥和订阅源 12wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:blogs.netkyle.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/04/17/2019-04-17-webapi-deploy/" title="Ubuntu 部署 ASP.NET Core API 应用" itemprop="url">Ubuntu 部署 ASP.NET Core API 应用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
+		
+  <p class="article-time">
+    <time datetime="2019-04-16T16:00:00.000Z" itemprop="datePublished"> Published 2019-04-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建并发布应用"><span class="toc-number">2.</span> <span class="toc-text">构建并发布应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装-NET-Core-SDK-与-ASP-NET-Core-运行时"><span class="toc-number">2.1.</span> <span class="toc-text">安装 .NET Core SDK 与 ASP.NET Core 运行时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建-Web-API-应用"><span class="toc-number">2.2.</span> <span class="toc-text">创建 Web API 应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构建与发布应用"><span class="toc-number">2.3.</span> <span class="toc-text">构建与发布应用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装并配置-Nginx"><span class="toc-number">3.</span> <span class="toc-text">安装并配置 Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装Nginx"><span class="toc-number">3.1.</span> <span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置-Nginx"><span class="toc-number">3.2.</span> <span class="toc-text">配置 Nginx</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署应用"><span class="toc-number">4.</span> <span class="toc-text">部署应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建服务文件"><span class="toc-number">4.1.</span> <span class="toc-text">创建服务文件</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>框架：.NET Core 2.2<br>系统：Ubuntu 18.04-x64<br>Web 服务器：Nginx</p>
+<h4 id="构建并发布应用"><a href="#构建并发布应用" class="headerlink" title="构建并发布应用"></a>构建并发布应用</h4><h5 id="安装-NET-Core-SDK-与-ASP-NET-Core-运行时"><a href="#安装-NET-Core-SDK-与-ASP-NET-Core-运行时" class="headerlink" title="安装 .NET Core SDK 与 ASP.NET Core 运行时"></a>安装 .NET Core SDK 与 ASP.NET Core 运行时</h5><ol>
+<li><p>注册Microsoft密钥和订阅源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb</span><br><span class="line">sudo dpkg -i packages-microsoft-prod.deb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装开发包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo apt-get install apt-transport-https</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install dotnet-sdk-2.2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 .NET 运行时</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo apt-get install apt-transport-https</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install aspnetcore-runtime-2.2</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="创建-Web-API-应用"><a href="#创建-Web-API-应用" class="headerlink" title="创建 Web API 应用"></a>创建 Web API 应用</h5><p>此处略（可以根据自己的实际需求来创建）</p>
+<h5 id="构建与发布应用"><a href="#构建与发布应用" class="headerlink" title="构建与发布应用"></a>构建与发布应用</h5><ul>
+<li>进入项目所在目录</li>
+<li>执行命令 <code>dotnet build -c Release</code> 用于构建应用</li>
+<li>执行命令 <code>dotnet publish -c Release -o ./publish</code> 来发布应用</li>
+</ul>
+<p><em>注：如果不指定输出目录，默认在 <code>bin/Release/aspnetcore2.2/publish</code> 目录下。</em></p>
+<h4 id="安装并配置-Nginx"><a href="#安装并配置-Nginx" class="headerlink" title="安装并配置 Nginx"></a>安装并配置 Nginx</h4><h5 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h5><ul>
+<li><a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages" target="_blank" rel="noopener">配置 apt-get 源</a><br>在 <code>/etc/apt/sources.list</code> 文件下添加以下内容：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># Replace $release with your corresponding Ubuntu release.</span><br><span class="line">deb http://nginx.org/packages/ubuntu/ $release nginx</span><br><span class="line">deb-src http://nginx.org/packages/ubuntu/ $release nginx</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>这里的 <code>$release</code> 参数要根据当前安装机器的系统版本来配置。如：Ubuntu 18.04（bionic） </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://nginx.org/packages/ubuntu/ bionic nginx</span><br><span class="line">deb-src http://nginx.org/packages/ubuntu/ bionic nginx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 Nginx<br><code>sudo service nginx start</code></p>
+<h5 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h5></li>
+<li><p>进入配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  vi /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将配置文件中的第二个 server 节点，修改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 192.168.1.110:8089;</span><br><span class="line">        # listen [::]:8089;</span><br><span class="line">        server_name netkyle.com;</span><br><span class="line">        # root /var/www/example.com;</span><br><span class="line">        # index index.html;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">        # try_files $uri $uri/ =404;</span><br><span class="line"></span><br><span class="line">        proxy_pass http://127.0.0.1:8989;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection keep-alive;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_cache_bypass $http_upgrade;</span><br><span class="line">        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>查看一下配置是否正确：<code>sudo nginx -t</code><br>强制加载修改：<code>sudo nginx -s reload</code><br>查看一下 Nginx 是否启动 <code>systemctl status nginx</code> ，如果显示未启动成功，则执行以下命令 <code>sudo journalctl -fu nginx.service</code> 来查看错误日志。也可以访问 <code>/var/crash</code> 查看是否有错误日志。</p>
+<p>如果都没问题了，测试一下 Web服务器是否能正常使用（这里使用的时默认端口 80，如果是其他端口需要在地址后追加端口，并以 “:” 分割）：<br><code>curl http://localhost</code></p>
+<p><em>注意这里的设置代理的端口不是默认的端口，要注意与 <code>Program.cs</code>  文件中设置的保持一致：</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IWebHostBuilder <span class="title">CreateWebHostBuilder</span><span class="params">(string[] args)</span> </span>=&gt;</span><br><span class="line">    WebHost.CreateDefaultBuilder(args)</span><br><span class="line">    .UseUrls(<span class="string">"http://127.0.0.1:8989"</span>)</span><br><span class="line">    .UseStartup&lt;Startup&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>详细的配置可以参考 <a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/" target="_blank" rel="noopener">Nginx 官网给出的配置文件</a> 和 <a href="https://docs.microsoft.com/zh-cn/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.2" target="_blank" rel="noopener">微软文档给出的配置</a></p>
+<h4 id="部署应用"><a href="#部署应用" class="headerlink" title="部署应用"></a>部署应用</h4><h5 id="创建服务文件"><a href="#创建服务文件" class="headerlink" title="创建服务文件"></a>创建服务文件</h5><ul>
+<li><p>创建一个服务文件<br><code>sudo vi /etc/systemd/system/kestrel-webapi.service</code></p>
+</li>
+<li><p>向创建的配置文件中添加如下内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Example .NET Web API App running on Ubuntu</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">WorkingDirectory=/var/www/webapi</span><br><span class="line">ExecStart=/usr/bin/dotnet /var/www/webapi/RedisWebAPI.dll</span><br><span class="line">Restart=always</span><br><span class="line"><span class="meta">#</span> Restart service after 10 seconds if the dotnet service crashes:</span><br><span class="line">RestartSec=10</span><br><span class="line">KillSignal=SIGINT</span><br><span class="line">SyslogIdentifier=dotnet-example</span><br><span class="line">User=netkyle</span><br><span class="line">Environment=ASPNETCORE_ENVIRONMENT=Production</span><br><span class="line">Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false</span><br><span class="line"><span class="meta">#</span> The default value is 90 seconds for most distributions.</span><br><span class="line">TimeoutStopSec=90</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>说明：</p>
+<ol>
+<li>如果用户 <code>netkyle</code> 不存在，需要提前创建用户。</li>
+<li>使用 TimeoutStopSec 配置在收到初始中断信号后等待应用程序关闭的持续时间。 如果应用程序在此时间段内未关闭，则将发出 SIGKILL 以终止该应用程序。</li>
+<li>环境变量注意事项<ul>
+<li>Linux 具有区分大小写的文件系统。 将 ASPNETCORE_ENVIRONMENT 设置为“Production”会导致搜索配置文件 <code>appsettings.Production.json</code> ，而不是 <code>appsettings.production.json</code> 。必须转义某些值,以供配置提供程序读取环境变量。 使用以下命令生成适当的转义值以供在配置文件中使用：<br><code>systemd-escape &quot;&lt;value-to-escape&gt;&quot;</code></li>
+<li>环境变量名不支持冒号 (:) 分隔符。 使用双下划线 (<code>__</code>) 代替冒号。 环境变量读入配置时，环境变量配置提供程序将双下划线转换为冒号。示例：<br><code>Environment=ConnectionStrings__DefaultConnection={Connection String}</code></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>将上面 <strong>构建与发布应用</strong> 中发布的 publish 目录中的文件全部拷贝到目录 <code>/var/www/webapi/</code>  目录下面。</p>
+</li>
+<li><p>修改配置文件和文件夹的权限<br><code>sudo chmod 777  /var/www/webapi/appsetting.json</code></p>
+</li>
+<li><p>启动服务：<br>进入 <code>/etc/systemd/system/</code>  目录后，执行 <code>sudo systemctl enable kestrel-wepai.service</code></p>
+</li>
+</ul>
+<p>如果启动失败使用以下命令查看日志：<br><code>sudo journalctl -fu kestrel-webapi.service</code></p>
+<p><em>注：如果开启防火墙记得让 8089通过防火墙</em></p>
+<ul>
+<li>测试发布的应用是否可用<br><code>curl http://192.168.1.110:8089</code></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Computer/">Computer</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Configuration/">Configuration</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blogs.netkyle.com/2019/04/17/2019-04-17-webapi-deploy/" data-title="Ubuntu 部署 ASP.NET Core API 应用 | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/05/21/2019-05-21-Basic-Algorithm/" title="数据结构与算法基础">
+  <strong>上一篇：</strong><br/>
+  <span>
+  数据结构与算法基础</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/01/28/2019-01-28-Python-Basic/"  title="Python 基础入门（一）">
+ <strong>下一篇：</strong><br/> 
+ <span>Python 基础入门（一）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2019/04/17/2019-04-17-webapi-deploy/" data-title="Ubuntu 部署 ASP.NET Core API 应用" data-url="http://blogs.netkyle.com/2019/04/17/2019-04-17-webapi-deploy/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ASP-NET-Core/" title="ASP.NET Core">ASP.NET Core<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Computer/" title="Computer">Computer<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Configuration/" title="Configuration">Configuration<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redis/" title="Redis">Redis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰的博客">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Kyle. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Kyle Li">Kyle Li</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Kyle"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Kyle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
