@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>Hexo + GitHub 建站指北 | Kyle</title>
+    <title>泛型比较接口 | Kyle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Kyle Li">
     
 
     
-    <meta name="description" content="Hexo 是什么？Hexo 是一个开源、简单、轻量级，而且很强大的博客框架，主要使用 Nodejs 实现；非常适合喜欢使用 Markdown 文档来写博客的伙伴；它通过将 Markdown 文件转换为静态网页，来实现 Web 访问。它还支持很多可以定制功能，如:插件（Plugin）和主题（Themes），可以根据自己的喜好进行个性化设置。这里是他的文档 Hexo 的建站步骤 安装 Git   安装">
-<meta name="keywords" content="Hexo">
+    <meta name="description" content="IComparable&amp;lt;T&amp;gt;命名空间：System 描述：定义值类型或类实现的泛型比较方法，以创建特定类型的比较方法，来实现对其实例进行排序。此接口由需要对其值进行排序的类型实现，并为需要排序的泛型集合对象的成员提供了强类型比较方法。例如，一个数字可以大于第二个数字，一个字符串可以按字母顺序出现在另一个字符串之前。它要求其实现类型定义唯一的 CompareTo(T) 方法，该方法指示排">
+<meta name="keywords" content="C# Principle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo + GitHub 建站指北">
-<meta property="og:url" content="http://blogs.netkyle.com/2018/01/28/2018-01-28-Hexo-Setup-Website/index.html">
+<meta property="og:title" content="泛型比较接口">
+<meta property="og:url" content="http://blogs.netkyle.com/2018/08/30/2019-06-03-Generic-Compare/index.html">
 <meta property="og:site_name" content="Kyle">
-<meta property="og:description" content="Hexo 是什么？Hexo 是一个开源、简单、轻量级，而且很强大的博客框架，主要使用 Nodejs 实现；非常适合喜欢使用 Markdown 文档来写博客的伙伴；它通过将 Markdown 文件转换为静态网页，来实现 Web 访问。它还支持很多可以定制功能，如:插件（Plugin）和主题（Themes），可以根据自己的喜好进行个性化设置。这里是他的文档 Hexo 的建站步骤 安装 Git   安装">
+<meta property="og:description" content="IComparable&amp;lt;T&amp;gt;命名空间：System 描述：定义值类型或类实现的泛型比较方法，以创建特定类型的比较方法，来实现对其实例进行排序。此接口由需要对其值进行排序的类型实现，并为需要排序的泛型集合对象的成员提供了强类型比较方法。例如，一个数字可以大于第二个数字，一个字符串可以按字母顺序出现在另一个字符串之前。它要求其实现类型定义唯一的 CompareTo(T) 方法，该方法指示排">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T09:17:56.581Z">
+<meta property="og:updated_time" content="2019-08-17T16:07:13.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo + GitHub 建站指北">
-<meta name="twitter:description" content="Hexo 是什么？Hexo 是一个开源、简单、轻量级，而且很强大的博客框架，主要使用 Nodejs 实现；非常适合喜欢使用 Markdown 文档来写博客的伙伴；它通过将 Markdown 文件转换为静态网页，来实现 Web 访问。它还支持很多可以定制功能，如:插件（Plugin）和主题（Themes），可以根据自己的喜好进行个性化设置。这里是他的文档 Hexo 的建站步骤 安装 Git   安装">
+<meta name="twitter:title" content="泛型比较接口">
+<meta name="twitter:description" content="IComparable&amp;lt;T&amp;gt;命名空间：System 描述：定义值类型或类实现的泛型比较方法，以创建特定类型的比较方法，来实现对其实例进行排序。此接口由需要对其值进行排序的类型实现，并为需要排序的泛型集合对象的成员提供了强类型比较方法。例如，一个数字可以大于第二个数字，一个字符串可以按字母顺序出现在另一个字符串之前。它要求其实现类型定义唯一的 CompareTo(T) 方法，该方法指示排">
 
     
     <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/01/28/2018-01-28-Hexo-Setup-Website/" title="Hexo + GitHub 建站指北" itemprop="url">Hexo + GitHub 建站指北</a>
+      <a href="/2018/08/30/2019-06-03-Generic-Compare/" title="泛型比较接口" itemprop="url">泛型比较接口</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
 		
   <p class="article-time">
-    <time datetime="2018-01-27T16:00:00.000Z" itemprop="datePublished"> Published 2018-01-28</time>
+    <time datetime="2018-08-29T16:00:00.000Z" itemprop="datePublished"> Published 2018-08-30</time>
     
   </p>
 </header>
@@ -98,28 +98,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-是什么？"><span class="toc-number">1.</span> <span class="toc-text">Hexo 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-的建站步骤"><span class="toc-number">2.</span> <span class="toc-text">Hexo 的建站步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需要注意的地方"><span class="toc-number">3.</span> <span class="toc-text">需要注意的地方</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#IComparable-lt-T-gt"><span class="toc-number">1.</span> <span class="toc-text">IComparable&lt;T&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IEquatable-lt-T-gt"><span class="toc-number">2.</span> <span class="toc-text">IEquatable&lt;T&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IComparer-lt-T-gt"><span class="toc-number">3.</span> <span class="toc-text">IComparer&lt;T&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IEqualityComparer-lt-T-gt"><span class="toc-number">4.</span> <span class="toc-text">IEqualityComparer&lt;T&gt;</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="Hexo-是什么？"><a href="#Hexo-是什么？" class="headerlink" title="Hexo 是什么？"></a>Hexo 是什么？</h3><p>Hexo 是一个<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">开源</a>、简单、轻量级，而且很强大的博客框架，主要使用 Nodejs 实现；非常适合喜欢使用 Markdown 文档来写博客的伙伴；它通过将 Markdown 文件转换为静态网页，来实现 Web 访问。它还支持很多可以定制功能，如:插件（Plugin）和主题（Themes），可以根据自己的喜好进行个性化设置。<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">这里是他的文档</a></p>
-<h3 id="Hexo-的建站步骤"><a href="#Hexo-的建站步骤" class="headerlink" title="Hexo 的建站步骤"></a>Hexo 的建站步骤</h3><ul>
-<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">安装 Git</a></li>
-</ul>
-<ul>
-<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">安装 NodeJs</a></li>
-</ul>
-<ul>
-<li><a href="https://juejin.im/post/5c4dac03f265da613c0a2811#heading-15" target="_blank" rel="noopener">Github 创建项目</a></li>
-</ul>
-<h3 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h3><ol>
-<li><p>在 GitHub 为个人的 Blogs 内容创建仓库时，需要创建两个分支 master 和 gh-pages ,master 用于存放生成文档，gh-pages 用于存放部署文档。</p>
-</li>
-<li><p>由于在 Github 上创建项目仓库时，GitHub pages 默认访问路径为  <em>”http(s)://username.github.io/projectname“</em> 所以在设置根目录下的配置文件 <em>”_config.ymal“</em> 中的 url 配置项和 root 配置项时，需要将 url 设置为 <em>”http(s)://username.github.io/projectname“<em>，并把 root 设置为 *”/projectname/“</em>，而非默认的 *”/“</em></p>
-</li>
-<li><p><a href="https://github.com/kylerlmy/website/blob/master/_config.yml" target="_blank" rel="noopener">_config.ymal 配置文件内容</a></p>
-</li>
-</ol>
+		<h4 id="IComparable-lt-T-gt"><a href="#IComparable-lt-T-gt" class="headerlink" title="IComparable&lt;T&gt;"></a><code>IComparable&lt;T&gt;</code></h4><p>命名空间：<code>System</code></p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1?view=netframework-4.8" target="_blank" rel="noopener">描述</a>：<br>定义值类型或类实现的泛型比较方法，以创建特定类型的比较方法，来实现对其实例进行排序。<br>此接口由需要对其值进行排序的类型实现，并为需要排序的泛型集合对象的成员提供了强类型比较方法。例如，一个数字可以大于第二个数字，一个字符串可以按字母顺序出现在另一个字符串之前。它要求其实现类型定义唯一的 <code>CompareTo(T)</code> 方法，该方法指示排序顺序中当前实例的位置是在同一类型的第二个对象之前，之后还是相同的位置。通常，不直接在开发人员的代码中调用该方法。相反，它由 <code>List&lt;T&gt;.Sort()</code>和 <code>Add</code> 等方法自动调用。<br>通常，提供 <code>Comparable&lt;T&gt;</code> 实现的类型也实现 <code>IEquatable&lt;T&gt;</code> 接口。 <code>IEquatable&lt;T&gt;</code> 接口定义的 <code>Equals</code> 方法，该方法确定实现类型的实例的相等性。<br><code>CompareTo(T)</code>  方法的实现必须返回 Int32 值，小于 <code>0</code> 的值表示此对象位于 <code>CompareTo(T)</code>  方法指定的对象之前。大于 <code>0</code> 表示此对象位于 <code>CompareTo(T)</code>  方法指定的对象之后。等于 <code>0</code> 表示此对象和 <code>CompareTo(T)</code>  方法指定的对象位于相同的位置。<br>所有数字类型（如 <code>Int32</code> 和 <code>Double</code>）都实现 <code>IComparable&lt;T&gt;</code>，<code>String</code>，<code>Char</code> 和 <code>DateTime</code> 也是如此。自定义类型也应提供自己的 <code>IComparable&lt;T&gt;</code> 实现，以便对对象实例进行排序。<br>如果实现了 <code>IComparable&lt;T&gt;</code>  也应该重写 <code>&gt;</code> 、<code>&gt;=</code> 、<code>&lt;</code>  和 <code>&lt;=</code> 运算符，来保证与 <code>IComparable&lt;T&gt;</code>  方法返回一致的值。除此之外也应该实现  <code>IEquatable&lt;T&gt;</code> 接口。</p>
+<h4 id="IEquatable-lt-T-gt"><a href="#IEquatable-lt-T-gt" class="headerlink" title="IEquatable&lt;T&gt;"></a><code>IEquatable&lt;T&gt;</code></h4><p>命名空间：<code>System</code></p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netframework-4.8" target="_blank" rel="noopener">描述</a>：<br>定义值类型或类实现的泛型方法，以创建特定类型的方法来确定实例的相等性。<br>这个接口被值可以等同的类型实现。（例如，numeric 和 string 类）值类型或类实现 <code>Equals</code> 方法，来创建适用于确定实例相等性的特定类型的方法。<br><code>IComparable &lt;T&gt;</code> 接口定义 <code>CompareTo</code> 方法，该方法确定其实现类型实例的排序顺序。<br><code>IEquatable &lt;T&gt;</code> 接口定义 <code>Equals</code> 方法，该方法确定其实现类型的实例的相等性。<br><code>IEquatable &lt;T&gt;</code> 接口用于泛型集合对象（如， <code>Dictionary&lt;TKey,TValue&gt;</code>，<code>List&lt;T&gt;</code>  和 <code>LinkedList&lt;T&gt;</code>），在这些类型的方法中来测试相等，这些方法包括 <code>Contains</code> 、<code>IndexOf</code> 、<code>LastIndexOf</code> 和 <code>Remove</code> 。<code>IEquatable &lt;T&gt;</code>  被需要存储在泛型集合中的任意类型实现。<br>如果实现 <code>IEquatable &lt;T&gt;</code>  方法，也需要重写 <code>Equals(Object)</code> 和<code>GetHashCode()</code> 的基类实现，以至于它们的行为与 <code>Equals(T)</code> 方法的行为一致。如果重写了 <code>Equals(Object)</code>，则在对类的静态<code>Equals(System.Object,System.Object)</code> 方法的调用中也会调用重写的实现。此外，也应该重写 <code>==</code> 和 <code>!=</code> 运算符。这可确保所有相等测试都返回一致的结果。<br>对于一个值类型，为了获得更好的性能，都要实现 <code>IEquatable&lt;T&gt;</code>  接口并重写 <code>Equals(Object)</code>  方法。<code>Equals(Object)</code> 装箱值类型，并依赖于反射来比较两个值的相等性。实现该接口的类型，其<code>Equals(T)</code> 实现和 <code>Equals(Object)</code> 重写应该返回一致的结果。如果实现 <code>IEquatable&lt;T&gt;</code> 接口，也有对类型的实例进行排序的需求，则还应实现 <code>IComparable&lt;T&gt;</code> 接口。同样的如果实现了 <code>IComparable&lt;T&gt;</code> 接口，也应实现 <code>IEquatable&lt;T&gt;</code> 接口。<br>请注意，有些设计中的类型支持排序关系，但是相等可能与排序关系不同。想象一下，一个 <code>Person</code> 类，安装字母顺序排序，两个同名的人排序相同，但他们可能不是同一个人。</p>
+<h4 id="IComparer-lt-T-gt"><a href="#IComparer-lt-T-gt" class="headerlink" title="IComparer&lt;T&gt;"></a><code>IComparer&lt;T&gt;</code></h4><p>命名空间：<code>System.Collections.Generic</code></p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.icomparer-1?view=netframework-4.8" target="_blank" rel="noopener">描述</a>：<br>定义类型实现比较两个对象的方法。<br>此接口与 <code>List &lt;T&gt; .Sort</code> 和 <code>List &lt;T&gt; .BinarySearch</code> 方法一起使用。它提供了一种自定义集合实现排序的方法。实现此接口的类包括<code>SortedDictionary &lt;TKey，TValue&gt;</code>  和 <code>SortedList &lt;TKey，TValue&gt;</code> 等泛型类。该接口支持排序比较。也就是说，当 <code>Compare</code> 方法返回 <code>0</code> 时，表示两个对象的排列顺序相同。<code>IEqualityComparer &lt;T&gt;</code> 通用接口提供了精确的相等比较的实现。<br>建议从 <code>Comparer &lt;T&gt;</code> 类派生，而不是实现 <code>IComparer &lt;T&gt;</code> 接口，因为 <code>Comparer &lt;T&gt;</code> 类提供 <code>IComparer.Compare</code>  方法的显式接口实现。并且 <code>Comparer &lt;T&gt;</code> 的 <code>Default</code> 属性用于获取对象的默认比较器。</p>
+<h4 id="IEqualityComparer-lt-T-gt"><a href="#IEqualityComparer-lt-T-gt" class="headerlink" title="IEqualityComparer&lt;T&gt;"></a><code>IEqualityComparer&lt;T&gt;</code></h4><p>命名空间：<code>System.Collections.Generic</code></p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iequalitycomparer-1?view=netframework-4.8" target="_blank" rel="noopener">描述</a>:<br>定义一个方法，用于支持对象之间的比较，判断对象是否相等。<br>该接口允许为集合实现自定义的相等性比较。也就是说，你可以为类型 T 创建你自己的相等定义；并且在与接受 <code>IEqualityComparer&lt;T&gt;</code> 接口的集合类型一起使用时指定这个相对定义。例如，泛型集合<code>Dictionary&lt;TKey,TValue&gt;</code> 的构造函数就接受该接口。<br>这个接口只支持相等比较。定制比较与排序的比较有泛型接口 <code>IComparer&lt;T&gt;</code> 提供。<br>建议从 <code>EqualityComparer&lt;T&gt;</code>  类派生，而不是实现 <code>IEqualityComparer&lt;T&gt;</code>  接口。因为 <code>EqualityComparer &lt;T&gt;</code> 类使用<code>IEquatable &lt;T&gt; .Equals</code> 方法而不是 <code>Object.Equals</code> 方法测试相等性。这与 <code>Dictionary&lt;TKey,TValue&gt;</code>  和其他泛型集合的 <code>Contains</code> 、<code>IndexOf</code> 、<code>LastIndexOf</code> 和 <code>Remove</code> 方法一致。</p>
+<p>引用至《深入理解C#》（第三版）3.3.3 节</p>
+<blockquote>
+<p><code>IComparer&lt;T&gt;</code>  和 <code>IComparable&lt;T&gt;</code>  用于排序（判断某个值是小于、等于还是大于另一个），而<code>IEqualityComparer&lt;T&gt;</code>  和  <code>IEquatable&lt;T&gt;</code> 通过某种标准来比较两个项的相等性，或查找某个项的散列（通过相等性概念匹配的方式）。<br>另一种划分方式：<code>IComparer&lt;T&gt;</code>  和 <code>IEqualityComparer&lt;T&gt;</code>  的实例能够比较两个不同的值，而 <code>IComparable&lt;T&gt;</code>  和 <code>IEquatable&lt;T&gt;</code>  的实例则可以比较它们本身和其他值。</p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,13 +121,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  <a class="article-category-link" href="/categories/ASP-NET-Core/">ASP.NET Core</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  <span></span> <a href="/tags/C-Principle/">C# Principle</a>
   </div>
 
 </div>
@@ -142,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://blogs.netkyle.com/2018/01/28/2018-01-28-Hexo-Setup-Website/" data-title="Hexo + GitHub 建站指北 | Kyle" data-tsina="" class="share clearfix">
+	  <div data-url="http://blogs.netkyle.com/2018/08/30/2019-06-03-Generic-Compare/" data-title="泛型比较接口 | Kyle" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,18 +150,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/08/12/2018-08-12-AspNetCore-Middleware/" title="Asp.Net Core 之 中间件">
+ <a href="/2018/11/21/2018-11-21-Redis-Basic/" title="Redis 基础配置">
   <strong>上一篇：</strong><br/>
   <span>
-  Asp.Net Core 之 中间件</span>
+  Redis 基础配置</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/07/28/2017-7-28-CSS-Basic/"  title="CSS 基础">
+<a href="/2018/08/30/2018-08-30-AspNetCore-Options/"  title="Asp.Net Core 之 Options">
  <strong>下一篇：</strong><br/> 
- <span>CSS 基础
+ <span>Asp.Net Core 之 Options
 </span>
 </a>
 </div>
@@ -176,7 +170,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2018/01/28/2018-01-28-Hexo-Setup-Website/" data-title="Hexo + GitHub 建站指北" data-url="http://blogs.netkyle.com/2018/01/28/2018-01-28-Hexo-Setup-Website/"></div>
+	<div class="ds-thread" data-thread-key="2018/08/30/2019-06-03-Generic-Compare/" data-title="泛型比较接口" data-url="http://blogs.netkyle.com/2018/08/30/2019-06-03-Generic-Compare/"></div>
 </section>
 
 
