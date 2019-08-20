@@ -1,0 +1,708 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>面试知识总结 | Kyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Kyle Li">
+    
+
+    
+    <meta name="description" content="Swagger作用：是一个常用的开源框架，具有一个包含大量工具的生态系统，可帮助我们设计、构建、记录和调用RESTful API。Swagger的核心是Swagger规范，它是JSON或YAML文件中的API描述元数据。该规范可为API创建RESTful 契约，以人机可读的格式详细描述所有资源和操作，以便于开发、发现和集成。为什么使用 Swagger:  其他产品能够自动调用和集成 API。 能够">
+<meta name="keywords" content="C# Principle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试知识总结">
+<meta property="og:url" content="http://blogs.netkyle.com/2019/08/10/2019-08-21-Interview-prepare/index.html">
+<meta property="og:site_name" content="Kyle">
+<meta property="og:description" content="Swagger作用：是一个常用的开源框架，具有一个包含大量工具的生态系统，可帮助我们设计、构建、记录和调用RESTful API。Swagger的核心是Swagger规范，它是JSON或YAML文件中的API描述元数据。该规范可为API创建RESTful 契约，以人机可读的格式详细描述所有资源和操作，以便于开发、发现和集成。为什么使用 Swagger:  其他产品能够自动调用和集成 API。 能够">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/factory_method_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/factory_method_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/abstract_method_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/abstract_method_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/builder_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/builder_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/adapter_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/adapter_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/bridge_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/bridge_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/decorator_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/decorator_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/facade_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/facade_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/fly_weight_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/fly_weight_sequence.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/proxy_class.png">
+<meta property="og:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/proxy_sequence.png">
+<meta property="og:updated_time" content="2019-08-20T16:33:25.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试知识总结">
+<meta name="twitter:description" content="Swagger作用：是一个常用的开源框架，具有一个包含大量工具的生态系统，可帮助我们设计、构建、记录和调用RESTful API。Swagger的核心是Swagger规范，它是JSON或YAML文件中的API描述元数据。该规范可为API创建RESTful 契约，以人机可读的格式详细描述所有资源和操作，以便于开发、发现和集成。为什么使用 Swagger:  其他产品能够自动调用和集成 API。 能够">
+<meta name="twitter:image" content="http://blogs.netkyle.com/2019/08/10/_posts/2019-08-21-Interview-prepare/factory_method_class.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Kyle" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Kyle" title="Kyle"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Kyle">Kyle</a></h1>
+				<h2 class="blog-motto">LOVE CODE &amp; ENJOY LIFE</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:blogs.netkyle.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/08/10/2019-08-21-Interview-prepare/" title="面试知识总结" itemprop="url">面试知识总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Kyle Li" target="_blank" itemprop="author">Kyle Li</a>
+		
+  <p class="article-time">
+    <time datetime="2019-08-09T16:00:00.000Z" itemprop="datePublished"> Published 2019-08-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Swagger"><span class="toc-number">1.</span> <span class="toc-text">Swagger</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Relation-SQL-VS-NoSQL"><span class="toc-number">2.</span> <span class="toc-text">Relation SQL VS NoSQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Redis-构建缓存"><span class="toc-number">3.</span> <span class="toc-text">Redis 构建缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#消息队列"><span class="toc-number">4.</span> <span class="toc-text">消息队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设计模式"><span class="toc-number">5.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UML-图与时序图"><span class="toc-number">5.1.</span> <span class="toc-text">UML 图与时序图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#时序图"><span class="toc-number">5.2.</span> <span class="toc-text">时序图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建型"><span class="toc-number">5.3.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结构型"><span class="toc-number">5.4.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#行为型"><span class="toc-number">5.5.</span> <span class="toc-text">行为型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单元测试"><span class="toc-number">6.</span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本概念"><span class="toc-number">7.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#桩对象-VS-模拟对象"><span class="toc-number">8.</span> <span class="toc-text">桩对象 VS 模拟对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#看过的书"><span class="toc-number">9.</span> <span class="toc-text">看过的书</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h4><p>作用：是一个常用的开源框架，具有一个包含大量工具的生态系统，可帮助我们设计、构建、记录和调用RESTful API。<br>Swagger的核心是Swagger规范，它是JSON或YAML文件中的API描述元数据。该规范可为API创建RESTful 契约，以人机可读的格式详细描述所有资源和操作，以便于开发、发现和集成。<br>为什么使用 Swagger:</p>
+<ul>
+<li>其他产品能够自动调用和集成 API。</li>
+<li>能够自动生成 API 文档。<br>借助Swagger获得必要文档以及稳定的API资源管理器，是API成功实现和降低开发者使用难度的关键。 </li>
+<li>使用 Swashbuckle NuGet 软件包在 ASP.NET Core 上构建<br>除了Swagger元数据生成器引擎外，Swashbuckle还包含swagger-ui的嵌入式版本，安装后可自动运行。 </li>
+</ul>
+<h4 id="Relation-SQL-VS-NoSQL"><a href="#Relation-SQL-VS-NoSQL" class="headerlink" title="Relation SQL VS NoSQL"></a>Relation SQL VS NoSQL</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>SQL</th>
+<th>No SQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>关系型数据库</td>
+<td>非关系型数据库</td>
+</tr>
+<tr>
+<td>语言</td>
+<td>数据库的定义与操作都基于结构化查询语言，适用于非常复杂的查询。在使用之前，需要预定义的架构来确定数据的结构，并且要求所有数据都遵循这个结构。结构的更改，对整个个系统来说是复杂和具有破坏性的。</td>
+<td>对于非结构化数据，其架构是动态的。数据可以通过多种方式保存，这就意味着它可以是面向文档，面向列，基于图形或组织为Key、Value存储。这种灵活性表明，文档可以不需要先定义结构就能创建。每个文档也可以有自己独特的结构。语法因数据库而异，您可以随时添加字段。</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>几乎应对扩展的所有的解决方案都是垂直扩展，这意味着通过在一个服务器上增加配置来提高负载。</td>
+<td>可以进行水平扩展，这意味着，可以通过分片或在NoSQL数据库中添加更多服务器来处理更多流量。因此NoSQL最终可以变得规模更大，更强，使的这些数据库成为大型或不断变化的数据集的首选。</td>
+</tr>
+<tr>
+<td>结构</td>
+<td>基于表的。适用于：需要<strong>多行事务</strong>的应用程序（如会计系统）、使用关系结构构建的遗留系统。</td>
+<td>键值对、基于文档的、图形数据库或宽列存储</td>
+</tr>
+<tr>
+<td>遵守的属性</td>
+<td>ACID(Atomicity, Consistency, Isolation and Durability) 原子性、一致性、隔离性、持久性</td>
+<td>CAP theorem (Consistency, Availability and Partition tolerance). 一致性、可用性、分区容错性</td>
+</tr>
+<tr>
+<td>可用数据库</td>
+<td>PostgreSQL, MySQL, Oracle and Microsoft SQL Server</td>
+<td>Redis, RavenDB Cassandra, MongoDB, BigTable, HBase, Neo4j and CouchDB</td>
+</tr>
+</tbody></table>
+<h4 id="Redis-构建缓存"><a href="#Redis-构建缓存" class="headerlink" title="Redis 构建缓存"></a>Redis 构建缓存</h4><h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><h5 id="UML-图与时序图"><a href="#UML-图与时序图" class="headerlink" title="UML 图与时序图"></a>UML 图与时序图</h5><p>类之间的关系：</p>
+<ul>
+<li><p>泛化关系<br>类的继承结构表现在 UML 中为：泛化（generalize）和实现（realize）<br>继承关系是 is-a 的关系；两个对象之间如果可以用 is-a 表示，就是继承关系。如，自行车是车。</p>
+</li>
+<li><p>实现关系</p>
+</li>
+<li><p>聚合关系<br>用于表示实体对象之间的关系，表示整体由部分构成的语义。如，部门由多个员工组成。<br>与组合关系不同的是，整体和部分不是强依赖的，即整体不存在了，部分依然存在。如，部门撤销了，人员不会消失，他们依然存在。</p>
+</li>
+<li><p>组合关系<br>与聚合一样，组合关系同样表示整体由部分构成的语义。如公司由多个部门构成。<br>组合关系是一种强依赖的特殊聚合关系，如果整体不在了，那么部分也不存在了。如，公司不存在了，部门也将不存在了。</p>
+</li>
+<li><p>关联关系<br>描述不同类的对象之间的结构关系；是一种静态关系。通常与运行状态无关，一般由常识等因素决定的。它一般用来定义对象之间静态的、天然的结构。关联关系是一种“强关联”的关系。关联关系默认不强调方向，表示对象间相互知道。</p>
+</li>
+<li><p>依赖关系<br>表示一个对象在运行期间会用到另一个对象的关系。<br>与关联关系不同，它是一种临时性的关系，通常在运行期间产生，并且随着运行时的变化，依赖关系也可能发生变化。<br>依赖也有方向。在最终代码中，依赖关系体现为类构造方法及类方法的传入参数，箭头的指向为调用关系。</p>
+</li>
+</ul>
+<h5 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h5><p>时序图是显示对象之间交互的图，这些对象是按时间顺序排列的。时序图中显示的是参与交互的对象及其对象之间消息交互的顺序。<br>时序图包含的建模元素主要有：对象（Actor），生命线（Lifeline）、控制焦点（Focus of control）、消息（Message）等待。</p>
+<h5 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h5><p>创建型模式对类的实例化过程进行抽象，能够将软件模块中对象的创建和对象的使用分离。为了使软件的结构更加清晰，外界对于这些对象只需要知道它们共同的接口，而不清楚其具体的实现细节，使整个系统的设计更加符合单一职责。<br>创建者模式在创建什么（What）、有谁创建（Who）、何时创建（When）等方面都为软件设计者提供了尽可能大的灵活性。创建型模式隐藏了类的实例的创建细节，通过隐藏对象如何被创建和组合在一起，达到使整个系统独立的目的。</p>
+<ul>
+<li><p>简单工厂模式<br>工厂类内部通过流程判断语句来选择使用哪个产品。</p>
+</li>
+<li><p>工厂方法模式<br>定义抽象工厂类，不同的产品类型由具体的工厂类负责创建。这种模式可以做到，在不修改具体工厂类的情况下，引入新的产品（通过添加新的子类工厂实现），做到对扩展开发，对修改关闭。工厂父类负责创建产品的公共接口，子类工厂负责实现。<br><img src="../_posts/2019-08-21-Interview-prepare/factory_method_class.png" alt="Image 工厂方法类图"><br><img src="../_posts/2019-08-21-Interview-prepare/factory_method_sequence.png" alt="Image 工厂方法时序图图"></p>
+</li>
+<li><p>抽象工厂模式<br>与工厂方法相比，一个工厂不仅仅只生产一种产品，它可以生产多个产品对象。工厂方法创建的是一个产品等级结构（即，同一种商品，多个品牌的创建），而抽象工厂创建的是一个产品族（即，同一个品牌，多种不同商品类型的创建）</p>
+</li>
+</ul>
+<p><img src="../_posts/2019-08-21-Interview-prepare/abstract_method_class.png" alt="Image 抽象工厂类图"><br><img src="../_posts/2019-08-21-Interview-prepare/abstract_method_sequence.png" alt="Image 抽象工厂时序图图"></p>
+<ul>
+<li>构造者模式<br>构造者就像是加工车间（Builder，抽象构造者），你（Director，指挥者，也就是需要产品对象的人）使用不同的加工车间(ConcreteBuilder，具体的构造者)，就能加工出不同的产品（Product，产品角色）出来。既然是加工车间，那么加工需要的原料必须自己提供（当然还是由产品自己公开自己有那些部件可用）。这样作为使用者的你就不需要关系加工车间是以什么样的工序进行加工的，整个产品的生产过程都外包给了加工车间。而且每个加工车间都有自己的一套工序标准。<br>构造者适合所创建的产品有较多的共同点，其组成部分相似。差异性很大不适合使用这种模式。（例如游戏中有不同的地图和人物，而地图或人物的构造过程类似。这种情况就可以使用该模式）<br>可以省略掉抽象构造者角色和指挥者角色。</li>
+</ul>
+<p><img src="../_posts/2019-08-21-Interview-prepare/builder_class.png" alt="Image 构造者模式类图"><br><img src="../_posts/2019-08-21-Interview-prepare/builder_sequence.png" alt="Image 构造者模式时序图图"></p>
+<p><a href="https://www.geeksforgeeks.org/builder-design-pattern/" target="_blank" rel="noopener">代码示例</a></p>
+<ul>
+<li>单例模式 </li>
+</ul>
+<h5 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h5><p>结构型模式描述如何将类或者对象结合在一起形成更大的结构，就像搭积木，可以通过简单积木的组合形成复杂的、功能强大的结构。<br>结构型模式可以分为类结构型模式和对象结构型模式；</p>
+<ul>
+<li><p>类结构型模式关心类的组合，由多个类可以组合成一个更大的系统，在类结构型模式中一般只存在<strong>继承关系和实现关系</strong>。</p>
+</li>
+<li><p>对象结构型模式关心类与对象的组合，通过<strong>关联关系</strong>使得<strong>在一个类中定义另一个类的实例对象</strong>，然后通过该对象调用其方法。根据“合成复用原则”，在系统中尽量使用关联（组合）关系来替代继承关系，因此大部分结构型模式都是对象结构型模式。</p>
+</li>
+<li><p>适配器模式<br>适配器模式使用的场景，就像我们希望使用三孔插座，但实际环境中只有两孔插座，但我们可以通过一个插座适配器来将两孔插座转换为三孔插座。<br>适配器模式就是将现有接口转换为客户类期望的接口。这样保证了对现有类的重用。适配器类的实现就是将客户端类的请求转化为对适配者相应接口的的调用。<br><img src="../_posts/2019-08-21-Interview-prepare/adapter_class.png" alt="Image 工厂方法类图"><br><img src="../_posts/2019-08-21-Interview-prepare/adapter_sequence.png" alt="Image 工厂方法时序图图"></p>
+</li>
+</ul>
+<p><a href="https://www.geeksforgeeks.org/adapter-pattern/" target="_blank" rel="noopener">示例代码</a></p>
+<ul>
+<li>桥接模式<br>在一个跨平台的视频播放器上播放多种格式的视频文件。有两种方式。<ul>
+<li>针对每一个平台都提供每种格式的实现。</li>
+<li>根据现实的需要对操作系统和视频格式实现进行组合。</li>
+</ul>
+</li>
+</ul>
+<p>对于两个个变化维度（两个变化原因）的系统，采用交接模式，可以减少系统中类的个数。<strong>将抽象化和实现化分离，使它们都可以独立地变化</strong>。抽象化就是忽略一些信息，把不同的实体当作同样的实体对待。将对象的共同性质抽取出来形成类的过程即为抽象化。实现化，针对抽象化给出的具体实现，就是实现化。实现化产生的对象比抽象化更具体。</p>
+<p><img src="../_posts/2019-08-21-Interview-prepare/bridge_class.png" alt="Image 桥接模式类图"><br><img src="../_posts/2019-08-21-Interview-prepare/bridge_sequence.png" alt="Image 桥接模式时序图图"></p>
+<p><a href="https://www.geeksforgeeks.org/bridge-design-pattern/" target="_blank" rel="noopener">示例代码</a></p>
+<ul>
+<li>装饰者模式<br>装饰者以对客户透明的方式，<strong>动态地给对象附加更多的功能</strong>。换言之，<strong>客户端并不会觉得对象在装饰前和装饰后又什么不同</strong>。装饰者模式可以在不需要更多子类的情况下，将对象的功能加以扩展（通过继承也可以获得父类的功能）。也采用包装的方式，在这方面与适配器一样，但适用场景不同。<br>Decorator 继承 抽象Componet 是为了达到类型一致。</li>
+</ul>
+<p><img src="../_posts/2019-08-21-Interview-prepare/decorator_class.png" alt="Image 装饰者模式类图"><br><img src="../_posts/2019-08-21-Interview-prepare/decorator_sequence.png" alt="Image 装饰者模式时序图图"></p>
+<p><a href="https://www.dofactory.com/net/decorator-design-pattern" target="_blank" rel="noopener">代码示例</a></p>
+<ul>
+<li>外观模式<br>外部与一个子系统必须通过一个统一的外观对象进行，为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这个子系统更加容易使用。在不引入抽象外观类的情况下，将会违背开闭原则。</li>
+</ul>
+<p><img src="../_posts/2019-08-21-Interview-prepare/facade_class.png" alt="Image 外观模式类图"><br><img src="../_posts/2019-08-21-Interview-prepare/facade_sequence.png" alt="Image 外观模式时序图图"></p>
+<p><a href="https://www.dotnettricks.com/learn/designpatterns/facade-design-pattern-dotnet" target="_blank" rel="noopener">代码示例</a></p>
+<ul>
+<li>享元模式<br>运用共享技术有效地支持大量细粒度对象的复用。系统只使用少量的对象，而这些对象都很相似，状态变化很小，可以实现对象的多次复用。享元模式要求能够共享的对象必须是细粒度对象。由一个工厂负责缓存对象，客户端对对象的访问和指向默写操作，都从工厂的缓存中获取，从而实现对象的复用。</li>
+</ul>
+<p><img src="../_posts/2019-08-21-Interview-prepare/fly_weight_class.png" alt="Image 享元模式类图"><br><img src="../_posts/2019-08-21-Interview-prepare/fly_weight_sequence.png" alt="Image 享元模式时序图图"></p>
+<p><a href="https://refactoring.guru/design-patterns/flyweight/csharp/example" target="_blank" rel="noopener">代码示例</a></p>
+<ul>
+<li>代理模式<br>给某一个对象提供一个代 理，并由代理对象控制对原对象的引用。一个客户不想或者不能直接引用一个对象，此时可以通过一个称之为“代理”的第三者来实现 间接引用。Proxy 类继承抽象 Subject 是为了使 Proxy 与 Subject 具有同样的接口。可以在代理中设置在实际操作之前或之后指向一些其他操作。<br><img src="../_posts/2019-08-21-Interview-prepare/proxy_class.png" alt="Image 代理模式类图"><br><img src="../_posts/2019-08-21-Interview-prepare/proxy_sequence.png" alt="Image 代理模式时序图图"></li>
+</ul>
+<h5 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h5><p>行为型模式使对不同的对象之间划分责任和算法的抽象化。<br>行为型模式不仅关注类和对象的结构，而且重点关注它们之间的相互作用。<br>通过行为型模式可以，更加清晰地划分类和对象的职责，并研究系统在运行时实例对象之间的交互。在系统运行时，对象并不是孤立的，它们可以通过相互通信与协作完成某些复杂功能，一个对象在运行时，也将影响到其他对象的运行。<br>行为型模式分为类行为型模式和对象行为型模式。</p>
+<ul>
+<li>类行为型模式：类行为型模式使用<strong>继承关系</strong>在几个类之间<strong>分配行为</strong>，类行为型模式主要通过多态来分配父类与子类的职责。</li>
+<li>对象行为型模式：对象行为型模式则使用对象的<strong>聚合关联关系</strong>来<strong>分配行为</strong>，对象行为型模式主要是通过对象关联等方式来分配两个或多个类的职责。根据“合成复用原则”，在系统中尽量使用关联（组合）关系来替代继承关系，因此大部分行为型设计模式都属于对象行为型设计模式。</li>
+</ul>
+<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>测试的方法名由三部分构成：</p>
+<ul>
+<li>被测试的方法名</li>
+<li>测试场景（能产生预期行为的条件）</li>
+<li>预期行为（在给定条件下，期望被测试方法产生什么结果）</li>
+</ul>
+<p>编写一个单元测试，通常包含三个主要的部分：</p>
+<ul>
+<li>配置对象，根据需要新建和设置它们</li>
+<li>操纵对象</li>
+<li>通过断言判断结果是否符合预期</li>
+</ul>
+<p>使用桩对象解决依赖<br>桩对象定义：对系统中现有依赖项的一个替代品，可认为控制，通过桩对象，无需涉及依赖项，就可以直接对代码进行测试。<br>热河面向对象的问题都可以通过添加一个间接层来解决，除非由太多层。消除依赖项的模式：</p>
+<ol>
+<li>找到被测对象所对应的接口或者 API。</li>
+<li>如果接口和测试的方法直接相关，则添加一个间接访问层来调用接口（泛指一起协同工作的方法或者类），以便能够测试代码。（即为代码添加一个中间层，被测试代码的依赖转变为整个中间层）</li>
+<li>将接口的底层实现替换为你能控制的东西。</li>
+</ol>
+<p>用模拟对象做交互测试和状态测试<br>模拟对象用于测试对象之间的调用。被调用的对象可能不返回结果，也不保存状态，但它的复杂逻辑需要基于其他对象的调用。<br>交互测试定义：测试一个对象如何向另一个对象传递消息，如如何从其他对象接收消息，即测试对象如何和其他对象进行交互。<br>可以把交互测试，看作“动作驱动测试”，把基于状态的测试看作“结果驱动测试”。</p>
+<p>模拟对象定义：系统中的一个伪对象，用来决定一个单元测试是通过还是失败。它通过<strong>验证被测对象和伪对象之间是否进行预期的交互</strong>来判断。通常每个测试只有一个伪对象。</p>
+<h4 id="桩对象-VS-模拟对象"><a href="#桩对象-VS-模拟对象" class="headerlink" title="桩对象 VS 模拟对象"></a>桩对象 VS 模拟对象</h4><p>基本区别：桩对象不会使测试失败，但模拟对象可以。<br>使用桩对象，断言是针对被测试类执行的。借助桩对象，能够确保测试顺利进行。<br>利用模拟对象来验证测试是否失败。断言是针对模拟对象的。被测试类与模拟对象通信，模拟对象记录所有的消息。测试使用模拟对象来验证测试是否通过。<br>伪对象是桩对象或者模拟对象的概称，因为它们看起来都像真对象。一个伪对象是桩对象还是模拟对象，取决于它在当前测试中的用法。如果是用来检测交互（断言所针对的），那么它就是模拟对象，否则它就是桩对象。</p>
+<p>模拟对象框架：Moq，Moq是针对Net开发的模拟库。他的目标是让模拟以一种自然的方式与现有的单元测试进行集成，使他更加直观。模拟的类不能为密封类。不能直接模拟静态方法。Moq只能创建模拟对象的实例。<br><a href="https://docs.microsoft.com/en-us/aspnet/core/test/load-tests?view=aspnetcore-2.2#third-party-tools" target="_blank" rel="noopener">压力测试工具</a></p>
+<h4 id="看过的书"><a href="#看过的书" class="headerlink" title="看过的书"></a>看过的书</h4><p>《Dot.NET单元测试艺术》Nunit</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/ASP-NET-Core/">ASP.NET Core</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/C-Principle/">C# Principle</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blogs.netkyle.com/2019/08/10/2019-08-21-Interview-prepare/" data-title="面试知识总结 | Kyle" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/06/03/2019-06-03-Generic-Compare/"  title="泛型比较接口">
+ <strong>下一篇：</strong><br/> 
+ <span>泛型比较接口
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2019/08/10/2019-08-21-Interview-prepare/" data-title="面试知识总结" data-url="http://blogs.netkyle.com/2019/08/10/2019-08-21-Interview-prepare/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ASP-NET-Core/" title="ASP.NET Core">ASP.NET Core<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Computer-Theory/" title="Computer Theory">Computer Theory<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Configuration/" title="Configuration">Configuration<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C-Principle/" title="C# Principle">C# Principle<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Middleware/" title="Middleware">Middleware<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Deploy/" title="Deploy">Deploy<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Host/" title="Host">Host<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python-basic/" title="Python basic">Python basic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redis/" title="Redis">Redis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰的博客">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Kyle. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Kyle Li">Kyle Li</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Kyle"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Kyle';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
